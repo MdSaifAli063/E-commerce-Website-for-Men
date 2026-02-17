@@ -661,6 +661,11 @@ app.get("/components/pants", requireAuth, (_req, res) => {
   res.render("components/pants");
 });
 
+// New Arrivals page (public)
+app.get("/new-arrivals", (_req, res) => {
+  res.render("new-arrivals");
+});
+
 // 404
 app.use((req, res) => res.status(404).send("Not Found"));
 
