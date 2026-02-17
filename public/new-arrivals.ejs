@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>New Arrivals - Elegant Fashion</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #f7f7f8 0%, #f4e4a6 100%);
+            color: #1a2332;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #fff 80%, #f4e4a6 100%);
+            box-shadow: 0 10px 30px rgba(26, 35, 50, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #e8e4e0;
+            border-radius: 0 0 24px 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 70px;
+            position: relative;
+            padding: 0 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-home {
+            background: none;
+            border: none;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1a2332;
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-home:hover {
+            color: #d4af37;
+            transform: translateX(-4px);
+        }
+
+        .site-title {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 28px;
+            color: #1a2332;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s, text-shadow 0.2s;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 8px #f4e4a6;
+            margin: 0;
+        }
+
+        .btn-gold {
+            background: linear-gradient(90deg, #d4af37 80%, #f4e4a6 100%);
+            color: #1a2332;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        main {
+            padding-bottom: 60px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%);
+            padding: 80px 0;
+            border-radius: 0 0 48px 48px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+            margin-bottom: 90px;
+            color: #fff;
+        }
+
+        .hero-title {
+            font-size: 70px;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 900;
+            color: #d4af37;
+            margin: 0 0 24px 0;
+            line-height: 1.1;
+            letter-spacing: 3px;
+            text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .section {
+            padding: 80px 0;
+            background: #fff;
+            border-radius: 32px;
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-family: 'Poppins';
+            font-weight: bold;
+            color: #1a2332;
+            margin-bottom: 24px;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 40px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (max-width: 899px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .card {
+            background: linear-gradient(135deg, #fff 80%, #f4e4a6 100%);
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(212, 175, 55, 0.12);
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+            border: 2px solid #f4e4a6;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 32px #d4af37;
+            transform: translateY(-8px) scale(1.03);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 256px;
+            object-fit: cover
+        }
+
+        .card-body {
+            padding: 32px 24px 24px 24px
+        }
+
+        .card-label {
+            display: inline-block;
+            background: linear-gradient(90deg, #d4af37 80%, #f4e4a6 100%);
+            color: #1a2332;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 10px;
+            padding: 6px 20px;
+            margin-bottom: 12px
+        }
+
+        .card-title {
+            font-family: 'Poppins';
+            font-weight: 700;
+            font-size: 24px;
+            color: #1a2332;
+            margin-bottom: 12px
+        }
+
+        .card-desc {
+            color: #4a5568;
+            font-size: 16px;
+            margin-bottom: 18px
+        }
+
+        .card-price {
+            font-size: 20px;
+            color: #d4af37;
+            font-weight: 600
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .card-action-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            background: none;
+            color: #d4af37;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .card-action-btn.add-to-cart {
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            color: #1a2332;
+            border: none
+        }
+
+        footer {
+            background: linear-gradient(90deg, #1a2332 80%, #d4af37 100%);
+            color: #fff;
+            padding: 64px 0 32px 0;
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 -4px 24px #d4af37;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./components/_back-to-home') %>
+
+        <main>
+            <section class="hero-section">
+                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.2)"></div>
+                <div class="container"
+                    style="position:relative; z-index:1; text-align:center; max-width:1200px; margin:0 auto;">
+                    <div style="margin-bottom:40px;">
+                        <h1 class="hero-title">New Arrivals Collection</h1>
+                        <p style="font-size:18px; color:#cbd5e1; max-width:800px; margin:0 auto; line-height:1.8;">
+                            Discover the newest additions — suits, shirts and accessories tailored for modern style.</p>
+                    </div>
+                    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:40px;">
+                        <button class="btn-gold" style="padding:14px 50px; font-size:20px;">Shop Now</button>
+                    </div>
+                    <div style="display:flex; justify-content:center; gap:50px; flex-wrap:wrap;">
+                        <div style="color:#fff; text-align:center;">
+                            <div style="font-size:36px; font-weight:900; color:#d4af37; margin-bottom:8px;">150+</div>
+                            <div style="font-size:14px; color:#cbd5e1;">Styles</div>
+                        </div>
+                        <div style="color:#fff; text-align:center;">
+                            <div style="font-size:36px; font-weight:900; color:#d4af37; margin-bottom:8px;">50+</div>
+                            <div style="font-size:14px; color:#cbd5e1;">Tailored Options</div>
+                        </div>
+                        <div style="color:#fff; text-align:center;">
+                            <div style="font-size:36px; font-weight:900; color:#d4af37; margin-bottom:8px;">100%</div>
+                            <div style="font-size:14px; color:#cbd5e1;">Premium Fabrics</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="section-title">New Arrivals</div>
+                    <div class="section-desc">Handpicked pieces from our latest collection</div>
+                    <div class="grid">
+                        <% for (let i=1; i <=16; i++) { %>
+                            <div class="card">
+                                <img class="card-img" src="https://via.placeholder.com/800x600?text=New+<%= i %>"
+                                    alt="New <%= i %>">
+                                <div class="card-body">
+                                    <div class="card-label">New</div>
+                                    <div class="card-title">New Arrival <%= i %>
+                                    </div>
+                                    <div class="card-desc">Premium tailoring and seasonal fabric.</div>
+                                    <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                        <div style="color:#888;font-size:14px;text-decoration: line-through;">₹29,200
+                                        </div>
+                                        <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹21,900 <span
+                                                style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                            onclick="alert('Added to cart!')">Add to Cart</button>
+                                        <button class="card-action-btn" title="Add to Wishlist"
+                                            onclick="alert('Added to wishlist!')">Wishlist</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div>
+                            <div class="footer-title">Elegant Fashion</div>
+                            <div style="margin-bottom:16px;">Crafting timeless elegance through premium fashion and
+                                exceptional quality.</div>
+                            <div class="footer-left-social" aria-label="Follow us">
+                                <a class="fb" href="https://www.facebook.com" target="_blank" rel="noreferrer">FB</a>
+                                <a class="ig" href="https://www.instagram.com" target="_blank" rel="noreferrer">IG</a>
+                                <a class="tw" href="https://www.twitter.com" target="_blank" rel="noreferrer">TW</a>
+                                <a class="li" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LI</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="footer-title">Quick Links</div>
+                            <ul class="footer-links">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/products">Products</a></li>
+                                <li><a href="/services">Services</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="footer-title">Categories</div>
+                            <ul class="footer-categories">
+                                <li><a href="#">Suits</a></li>
+                                <li><a href="#">Coats</a></li>
+                                <li><a href="#">Pants</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Sharwani</a></li>
+                                <li><a href="#">Kurtas</a></li>
+                                <li><a href="#">Waistcoats</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="footer-title">Customer Service</div>
+                            <ul class="footer-service">
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div style="font-size:16px; color:rgba(255,255,255,0.7);"> 2024 Elegant Fashion. All rights
+                            reserved.</div>
+                        <div>
+                            <button>Terms</button>
+                            <button>Privacy</button>
+                            <button>Cookies</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+
+</body>
+
+</html>
