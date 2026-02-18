@@ -303,18 +303,43 @@
 
         .card-action-btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px 16px;
             border: 2px solid #d4af37;
             border-radius: 8px;
             background: none;
-            color: #1a2332;
+            color: #d4af37;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            font-family: 'Poppins';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .card-action-btn:hover {
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            color: #1a2332;
+            transform: translateY(-2px);
+        }
+
+        .card-action-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
         }
 
         .card-action-btn.add-to-cart {
-            background: linear-gradient(90deg, #d4af37 80%, #f4e4a6 100%);
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            color: #1a2332;
             border: none;
+        }
+
+        .card-action-btn.add-to-cart:hover {
+            background: linear-gradient(90deg, #1a2332 60%, #d4af37 100%);
+            color: #fff;
         }
 
         footer {
