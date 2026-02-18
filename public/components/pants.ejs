@@ -303,18 +303,43 @@
 
         .card-action-btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px 16px;
             border: 2px solid #d4af37;
             border-radius: 8px;
             background: none;
-            color: #1a2332;
+            color: #d4af37;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            font-family: 'Poppins';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .card-action-btn:hover {
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            color: #1a2332;
+            transform: translateY(-2px);
+        }
+
+        .card-action-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
         }
 
         .card-action-btn.add-to-cart {
-            background: linear-gradient(90deg, #d4af37 80%, #f4e4a6 100%);
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            color: #1a2332;
             border: none;
+        }
+
+        .card-action-btn.add-to-cart:hover {
+            background: linear-gradient(90deg, #1a2332 60%, #d4af37 100%);
+            color: #fff;
         }
 
         footer {
@@ -524,10 +549,32 @@
                                 <div class="card-label">New</div>
                                 <div class="card-title">Formal Trousers</div>
                                 <div class="card-desc">Premium formal trousers for business wear.</div>
-                                <div class="card-price">$89.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="card"><img class="card-img"
@@ -537,10 +584,32 @@
                                 <div class="card-label">Sale</div>
                                 <div class="card-title">Casual Pants</div>
                                 <div class="card-desc">Comfortable casual pants for everyday wear.</div>
-                                <div class="card-price">$69.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="card"><img class="card-img"
@@ -550,10 +619,32 @@
                                 <div class="card-label">New</div>
                                 <div class="card-title">Slim Fit Pants</div>
                                 <div class="card-desc">Modern slim-fit pants with contemporary style.</div>
-                                <div class="card-price">$79.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="card"><img class="card-img"
@@ -563,10 +654,32 @@
                                 <div class="card-label">New</div>
                                 <div class="card-title">Premium Chinos</div>
                                 <div class="card-desc">Stylish premium chinos for versatile look.</div>
-                                <div class="card-price">$99.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -577,10 +690,32 @@
                                 <div class="card-label">Trending</div>
                                 <div class="card-title">Cargo Chinos</div>
                                 <div class="card-desc">Functional cargo pockets with style.</div>
-                                <div class="card-price">$84.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -591,10 +726,32 @@
                                 <div class="card-label">Sport</div>
                                 <div class="card-title">Athletic Joggers</div>
                                 <div class="card-desc">Comfortable joggers for active lifestyle.</div>
-                                <div class="card-price">$74.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -605,10 +762,32 @@
                                 <div class="card-label">Summer</div>
                                 <div class="card-title">Linen Summer Pants</div>
                                 <div class="card-desc">Breathable linen for warm weather.</div>
-                                <div class="card-price">$64.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -619,10 +798,32 @@
                                 <div class="card-label">Classic</div>
                                 <div class="card-title">Straight Fit Denim</div>
                                 <div class="card-desc">Timeless denim with perfect fit.</div>
-                                <div class="card-price">$79.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -633,10 +834,32 @@
                                 <div class="card-label">Elite</div>
                                 <div class="card-title">Tailored Trousers</div>
                                 <div class="card-desc">Premium tailored fit for office wear.</div>
-                                <div class="card-price">$119.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -647,10 +870,32 @@
                                 <div class="card-label">Comfort</div>
                                 <div class="card-title">Relaxed Fit Jeans</div>
                                 <div class="card-desc">Classic relaxed denim for comfort.</div>
-                                <div class="card-price">$74.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -696,10 +941,32 @@
                                 <div class="card-label">Limited</div>
                                 <div class="card-title">Limited Edition Shirt</div>
                                 <div class="card-desc">Exclusive design — limited stock.</div>
-                                <div class="card-price">$109.99</div>
-                                <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                        onclick="alert('Added to cart!')">Add to Cart</button><button
-                                        class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                               <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
