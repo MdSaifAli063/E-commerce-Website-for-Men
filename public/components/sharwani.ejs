@@ -241,7 +241,7 @@
             }
         }
 
-        .card {
+       .card {
             background: linear-gradient(135deg, #fff 80%, #f4e4a6 100%);
             border-radius: 24px;
             box-shadow: 0 4px 24px rgba(212, 175, 55, 0.12);
@@ -304,20 +304,44 @@
 
         .card-action-btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px 16px;
             border: 2px solid #d4af37;
             border-radius: 8px;
             background: none;
-            color: #1a2332;
+            color: #d4af37;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            font-family: 'Poppins';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .card-action-btn:hover {
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            color: #1a2332;
+            transform: translateY(-2px);
+        }
+
+        .card-action-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
         }
 
         .card-action-btn.add-to-cart {
-            background: linear-gradient(90deg, #d4af37 80%, #f4e4a6 100%);
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            color: #1a2332;
             border: none;
         }
 
+        .card-action-btn.add-to-cart:hover {
+            background: linear-gradient(90deg, #1a2332 60%, #d4af37 100%);
+            color: #fff;
+        }
         footer {
             background: linear-gradient(90deg, #1a2332 80%, #d4af37 100%);
             color: #fff;
@@ -558,10 +582,32 @@
                             <div class="card-label">Sale</div>
                             <div class="card-title">Traditional Sharwani</div>
                             <div class="card-desc">Classic traditional sharwani with elegant design.</div>
-                            <div class="card-price">$349.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -571,10 +617,32 @@
                             <div class="card-label">New</div>
                             <div class="card-title">Modern Sharwani</div>
                             <div class="card-desc">Contemporary modern sharwani with sleek style.</div>
-                            <div class="card-price">$329.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -584,10 +652,32 @@
                             <div class="card-label">New</div>
                             <div class="card-title">Wedding Sharwani</div>
                             <div class="card-desc">Luxurious wedding sharwani for special occasions.</div>
-                            <div class="card-price">$449.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                           <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -597,10 +687,32 @@
                             <div class="card-label">Festive</div>
                             <div class="card-title">Embroidered Sharwani</div>
                             <div class="card-desc">Detailed embroidered pieces for celebrations.</div>
-                            <div class="card-price">$379.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -610,10 +722,32 @@
                             <div class="card-label">Luxury</div>
                             <div class="card-title">Velvet Sharwani</div>
                             <div class="card-desc">Rich velvet textures for a regal presence.</div>
-                            <div class="card-price">$429.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -623,10 +757,32 @@
                             <div class="card-label">Designer</div>
                             <div class="card-title">Designer Sharwani</div>
                             <div class="card-desc">Exclusive designer pieces with modern cuts.</div>
-                            <div class="card-price">$499.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -636,10 +792,32 @@
                             <div class="card-label">Classic</div>
                             <div class="card-title">Classic Sharwani</div>
                             <div class="card-desc">Timeless silhouettes and classic tailoring.</div>
-                            <div class="card-price">$339.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -649,10 +827,32 @@
                             <div class="card-label">Minimal</div>
                             <div class="card-title">Minimal Sharwani</div>
                             <div class="card-desc">Clean lines for a contemporary formal look.</div>
-                            <div class="card-price">$289.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                           <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -662,10 +862,32 @@
                             <div class="card-label">Limited</div>
                             <div class="card-title">Limited Sharwani</div>
                             <div class="card-desc">Special limited edition sharwani.</div>
-                            <div class="card-price">$599.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                           <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -675,10 +897,32 @@
                             <div class="card-label">Occasion</div>
                             <div class="card-title">Embellished Sharwani</div>
                             <div class="card-desc">Decorative pieces for grand events.</div>
-                            <div class="card-price">$459.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
 
@@ -688,10 +932,32 @@
                             <div class="card-label">Festive</div>
                             <div class="card-title">Festive Sharwani</div>
                             <div class="card-desc">Bright and festive sharwani options.</div>
-                            <div class="card-price">$359.99</div>
-                            <div class="card-actions"><button class="card-action-btn add-to-cart"
-                                    onclick="alert('Added to cart!')">Add to Cart</button><button
-                                    class="card-action-btn" onclick="alert('Added to wishlist!')">❤️</button></div>
+                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart"
+                                        onclick="alert('Added to cart!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist"
+                                        onclick="alert('Added to wishlist!')">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
                     </div>
                 </div>
