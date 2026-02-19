@@ -77,6 +77,14 @@
         }
 
         nav button.active::after,
+        nav button:hover::after {}
+
+        /* hide cards that haven't been loaded yet */
+        .hidden-item {
+            display: none;
+        }
+
+        nav button.active::after,
         nav button:hover::after {
             content: "";
             display: block;
@@ -1113,7 +1121,7 @@
             <div class="container">
                 <div class="section-title">All Products</div>
                 <div class="section-desc">Discover our complete range</div>
-                <div class="grid products">
+                <div class="grid products" id="productGrid">
                     <div class="card">
                         <img class="card-img"
                             src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -1837,7 +1845,7 @@
                     <!-- Add more cards as needed -->
                 </div>
                 <div style="text-align:center; margin-top:48px;">
-                    <button class="btn-secondary">Load More</button>
+                    <button id="loadMore" class="btn-secondary">Load More</button>
                 </div>
             </div>
         </section>
@@ -2069,6 +2077,23 @@
                     focusables[nextIndex].focus();
                 }
             });
+
+            // Load more products logic: show 4 more cards per click
+            (function () {
+                const grid = document.querySelector('.grid.products');
+                if (!grid) return;
+                const cards = Array.from(grid.querySelectorAll('.card'));
+                let shown = 12;
+                cards.forEach((c, i) => { if (i >= shown) c.classList.add('hidden-item'); });
+                const btn = document.getElementById('loadMore');
+                if (!btn) return;
+                btn.addEventListener('click', () => {
+                    const hidden = cards.filter(c => c.classList.contains('hidden-item'));
+                    const toShow = hidden.slice(0, 4);
+                    toShow.forEach(c => c.classList.remove('hidden-item'));
+                    if (hidden.length <= 4) btn.style.display = 'none';
+                });
+            })();
         });
     </script>
 </body>
