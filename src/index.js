@@ -119,6 +119,7 @@ app.use((req, res, next) => {
   let currentPage = "home"; // default
   if (path === "/products") currentPage = "products";
   else if (path === "/services") currentPage = "services";
+  else if (path === "/booking") currentPage = "booking";
   else if (path === "/about") currentPage = "about";
   else if (path === "/contact") currentPage = "contact";
   else if (path === "/profile") currentPage = "profile";
@@ -602,6 +603,33 @@ app.get("/products", requireAuth, (_req, res) => {
 
 app.get("/services", requireAuth, (_req, res) => {
   res.render("services");
+});
+
+// Booking page - simple form
+app.get("/booking", requireAuth, (req, res) => {
+  const formData = {};
+  if (req.query && req.query.service) {
+    formData.service = req.query.service;
+  }
+  res.render("booking", { success: null, errors: [], formData });
+});
+
+app.post("/booking", requireAuth, (req, res) => {
+  const { name, email, phone, service, date, message } = req.body;
+  const errors = [];
+  if (!name) errors.push("Name is required.");
+  if (!email) errors.push("Email is required.");
+  if (!service) errors.push("Please select a service.");
+  if (errors.length) {
+    return res.render("booking", { success: null, errors, formData: req.body });
+  }
+  // in a real app we'd save to DB or send an email
+  console.log("Booking submitted:", req.body);
+  res.render("booking", {
+    success: "Your booking has been submitted. We'll be in touch soon!",
+    errors: [],
+    formData: {},
+  });
 });
 
 app.get("/about", requireAuth, (_req, res) => {
