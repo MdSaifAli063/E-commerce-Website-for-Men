@@ -450,7 +450,7 @@
             flex: 1;
         }
 
-      
+
 
         .hero-overlay {
             position: absolute;
@@ -1017,7 +1017,7 @@
                                     <% } %>
                         </div>
                 </div>
-            </div>
+            </div></a>
         </div>
     </header>
 
@@ -1036,11 +1036,15 @@
                     <p
                         style="font-size: 18px; color: #cbd5e1; margin: 0 0 40px 0; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
                         Professional tailoring, custom alterations, and personalized styling to transform your wardrobe
-                        with precision and excellence.
+                        with precision and excellence. From expert fittings and embroidery to wardrobe makeovers and
+                        style consultations, our full suite of services has you covered.
                     </p>
                 </div>
                 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
-                    <button class="btn-gold" style="padding: 14px 50px; font-size: 20px;">Book Now</button>
+                    <!-- changed to link to booking page -->
+                    <a href="/booking" class="btn-gold"
+                        style="padding: 14px 50px; font-size: 20px; text-decoration:none; display:inline-block;">Book
+                        Now</a>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
                     <div style="color: #fff; text-align: center;">
@@ -1058,20 +1062,76 @@
         <section class="section bg-cream">
             <div class="container">
                 <div class="section-title">Services Offered</div>
-                <div class="section-desc">Professional tailoring and more</div>
+                <div class="section-desc">Explore a wide range of services to elevate your style – from custom tailoring
+                    to
+                    wardrobe refreshes, consultations, and more.</div>
                 <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">Custom Tailoring</div>
-                            <div class="card-desc">Personalized fits for suits and shirts.</div>
+                    <a href="/booking?service=Custom%20Tailoring" style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Custom Tailoring</div>
+                                <div class="card-desc">Personalized fits for suits and shirts.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">Alterations</div>
-                            <div class="card-desc">Expert adjustments for perfect fit.</div>
+                    </a>
+                    <a href="/booking?service=Alterations" style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Alterations</div>
+                                <div class="card-desc">Expert adjustments for perfect fit.</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                    <a href="/booking?service=Style%20Consultation" style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Style Consultation</div>
+                                <div class="card-desc">One-on-one advice to refine your look.</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/booking?service=Wardrobe%20Refresh" style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Wardrobe Refresh</div>
+                                <div class="card-desc">Update and modernize your existing pieces.</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/booking?service=Stitching%20%26%20Repairs" style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Stitching & Repairs</div>
+                                <div class="card-desc">High-quality stitching and mending services.</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/booking?service=Embroidery%20%26%20Monogramming"
+                        style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Embroidery & Monogramming</div>
+                                <div class="card-desc">Personalize garments with custom designs.</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/booking?service=Personal%20Shopping" style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Personal Shopping</div>
+                                <div class="card-desc">Assistance selecting the perfect outfits.</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/booking?service=Suit%20Fitting%20%26%20Design"
+                        style="text-decoration:none;color:inherit;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Suit Fitting & Design</div>
+                                <div class="card-desc">Full-service design from measurement to finish.</div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1157,7 +1217,7 @@
                     <button>Cookies</button>
                 </div>
             </div>
-        </div>
+        </div></a>
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
