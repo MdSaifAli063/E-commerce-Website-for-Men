@@ -176,6 +176,55 @@
             border-color: rgba(34, 197, 94, 0.25);
             color: #bbf7d0;
         }
+
+        /* section/aesthetics */
+        .hero-section {
+            padding: 80px 0;
+            border-radius: 0 0 48px 48px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section.bg-cream {
+            background: linear-gradient(135deg, #f7f7f8 80%, #f4e4a6 100%);
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: bold;
+            color: #1a2332;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+
+        .section-desc {
+            font-size: 22px;
+            color: #4a5568;
+            margin-bottom: 40px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(90deg, #d4af37, #f4e4a6);
+            color: #1a2332;
+            border: none;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px 16px 16px 8px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(90deg, #f4e4a6, #d4af37);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -331,7 +380,21 @@
     </header>
 
     <main>
-        <section class="section">
+        <section class="hero-section"
+            style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%);">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.2);"></div>
+            <div class="container"
+                style="position:relative;z-index:1;text-align:center;max-width:1200px;margin:0 auto;">
+                <h1
+                    style="font-size:60px;font-weight:900;color:#d4af37;margin:0 0 20px 0;letter-spacing:2px;text-shadow:0 4px 16px rgba(0,0,0,0.4);">
+                    Schedule Your Service</h1>
+                <p style="font-size:18px;color:#cbd5e1;max-width:800px;margin:0 auto;line-height:1.6;">
+                    Choose a service and tell us your preferences — we’ll reach out to confirm your appointment.
+                </p>
+            </div>
+        </section>
+
+        <section class="section bg-cream">
             <div class="container">
                 <div class="section-title">Book a Service</div>
                 <div class="section-desc">Fill out the form below and we'll get back to you to confirm your appointment.
