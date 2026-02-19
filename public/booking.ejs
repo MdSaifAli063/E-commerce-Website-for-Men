@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book a Service - Elegant Fashion</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #f7f7f8 0%, #f4e4a6 100%);
+            color: #1a2332;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #fff 80%, #f4e4a6 100%);
+            box-shadow: 0 10px 30px rgba(26, 35, 50, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #e8e4e0;
+            border-radius: 0 0 24px 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            position: relative;
+            padding: 0 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        nav {
+            position: absolute;
+            left: 45%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            color: #1a2332;
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s, background 0.2s;
+            padding: 8px 16px;
+            border-radius: 8px 16px 16px 8px;
+            position: relative;
+        }
+
+        nav button.active,
+        nav button:hover {
+            color: #d4af37;
+            background: none;
+            box-shadow: none;
+            position: relative;
+        }
+
+        nav button.active::after,
+        nav button:hover::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 4px;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #d4af37 60%, #f4e4a6 100%);
+            transition: width 0.2s;
+        }
+
+        .site-title {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 28px;
+            color: #1a2332;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s, text-shadow 0.2s;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 8px #f4e4a6;
+            margin: 0;
+        }
+
+        .site-title:hover {
+            color: #d4af37;
+            text-shadow: 0 4px 16px #d4af37;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        /* form styles from contact page */
+        .contact-wrap {
+            max-width: 800px;
+            margin: 28px auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(26, 35, 50, 0.06);
+        }
+
+        .contact-form .row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 12px;
+            border: 1px solid #ececec;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 14px;
+            background: #fff;
+            box-sizing: border-box;
+        }
+
+        .contact-form .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            align-items: center;
+        }
+
+        /* alerts from signup page */
+        .alert {
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.06);
+            border-color: rgba(239, 68, 68, 0.25);
+            color: #fecaca;
+        }
+
+        .alert-success {
+            background: rgba(34, 197, 94, 0.08);
+            border-color: rgba(34, 197, 94, 0.25);
+            color: #bbf7d0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-marquee" role="region" aria-label="Site announcement">
+        <div class="marquee-content">Free delivery on orders over $50 — limited time offer!</div>
+    </div>
+    <header>
+        <div class="container header-content">
+            <!-- Site Title on left -->
+            <button class="site-title" onclick="location.href='/'" aria-label="Go to home">Elegant Fashion</button>
+
+            <!-- Navigation in center -->
+            <nav>
+                <button class="<%= currentPage === 'home' ? 'active' : '' %>" onclick="location.href='/'">Home</button>
+                <button class="<%= currentPage === 'products' ? 'active' : '' %>"
+                    onclick="location.href='/products'">Products</button>
+                <button class="<%= currentPage === 'services' ? 'active' : '' %>"
+                    onclick="location.href='/services'">Services</button>
+                <button class="<%= currentPage === 'about' ? 'active' : '' %>"
+                    onclick="location.href='/about'">About</button>
+                <button class="<%= currentPage === 'contact' ? 'active' : '' %>"
+                    onclick="location.href='/contact'">Contact</button>
+                <button class="<%= currentPage === 'booking' ? 'active' : '' %>"
+                    onclick="location.href='/booking'">Book</button>
+
+
+                <!-- Actions: Search, Wishlist, Cart, Account -->
+                <div class="header-actions">
+                    <!-- Search -->
+                    <form class="search-form">
+                        <input type="text" placeholder="Search products...">
+                        <button type="submit" title="Search" aria-label="Search">
+                            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- Wishlist -->
+                    <!-- Wishlist -->
+                    <button class="icon wishlist-btn" title="Wishlist" aria-label="Wishlist">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="heart-icon">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Cart -->
+                    <button class="icon" title="Cart" aria-label="Cart">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                            <path d="M3 6h18"></path>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Account dropdown -->
+                    <div class="dropdown">
+                        <% const isAuth=!!user; const displayName=(user && user.name) ? user.name : 'Account' ; %>
+                            <button class="account-btn" id="accountBtn" aria-haspopup="menu" aria-expanded="false"
+                                aria-controls="accountMenu">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <circle cx="12" cy="7" r="4" stroke="#ffffff" stroke-width="1.8"></circle>
+                                    <path d="M4 20c0-4 8-4 8-4s8 0 8 4" stroke="#ffffff" stroke-width="1.8"
+                                        stroke-linecap="round"></path>
+                                </svg>
+                                <span class="account-label">
+                                    <%= displayName %>
+                                </span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+
+                            <div id="accountMenu" class="dropdown-menu" role="menu">
+                                <% if (!isAuth) { %>
+                                    <a class="dropdown-item" href="/login" role="menuitem">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" stroke="currentColor"
+                                                stroke-width="1.5" />
+                                            <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M15 12H3" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                        Log in
+                                    </a>
+                                    <a class="dropdown-item" href="/signup" role="menuitem">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5">
+                                            </circle>
+                                            <path d="M4 20c0-4 8-4 8-4s8 0 8 4" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round">
+                                            </path>
+                                            <path d="M8 12h8" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round"></path>
+                                        </svg>
+                                        Sign up
+                                    </a>
+                                    <!-- Forgot password removed as requested -->
+                                    <% } else { %>
+                                        <div class="dropdown-item" role="menuitem" tabindex="-1" aria-disabled="true"
+                                            style="opacity:.85;cursor:default;">
+                                            Signed in as <strong style="margin-left:6px;">
+                                                <%= displayName %>
+                                            </strong>
+                                        </div>
+                                        <hr class="dropdown-sep" />
+                                        <a class="dropdown-item" href="/profile" role="menuitem">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                aria-hidden="true">
+                                                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5">
+                                                </circle>
+                                                <path d="M4 20c0-4 8-4 8-4s8 0 8 4" stroke="currentColor"
+                                                    stroke-width="1.5" stroke-linecap="round"></path>
+                                            </svg>
+                                            Profile
+                                        </a>
+                                        <a class="dropdown-item" href="/orders" role="menuitem">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                aria-hidden="true">
+                                                <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="1.5"></path>
+                                                <path d="M7 10h10M7 13h10" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round"></path>
+                                            </svg>
+                                            Orders
+                                        </a>
+                                        <hr class="dropdown-sep" />
+                                        <a class="dropdown-item" href="/logout" role="menuitem">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                aria-hidden="true">
+                                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+                                                    stroke="currentColor" stroke-width="1.5" />
+                                                <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M15 12H3" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" />
+                                            </svg>
+                                            Logout
+                                        </a>
+                                        <% } %>
+                            </div>
+                    </div>
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-title">Book a Service</div>
+                <div class="section-desc">Fill out the form below and we'll get back to you to confirm your appointment.
+                </div>
+                <% if (typeof success !=='undefined' && success) { %>
+                    <div class="alert alert-success">
+                        <%= success %>
+                    </div>
+                    <% } %>
+                        <% if (typeof errors !=='undefined' && errors.length) { %>
+                            <div class="alert alert-error">
+                                <ul style="margin:0; padding-left:18px;">
+                                    <% errors.forEach(function(err){ %>
+                                        <li>
+                                            <%= err %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                            </div>
+                            <% } %>
+                                <div class="contact-wrap">
+                                    <form class="contact-form" action="/booking" method="post" novalidate>
+                                        <div class="row">
+                                            <div style="flex:1;">
+                                                <label for="name">Name</label>
+                                                <input type="text" id="name" name="name" required
+                                                    value="<%= formData && formData.name ? formData.name : '' %>">
+                                            </div>
+                                            <div style="flex:1;">
+                                                <label for="email">Email</label>
+                                                <input type="email" id="email" name="email" required
+                                                    value="<%= formData && formData.email ? formData.email : '' %>">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div style="flex:1;">
+                                                <label for="phone">Phone</label>
+                                                <input type="text" id="phone" name="phone"
+                                                    value="<%= formData && formData.phone ? formData.phone : '' %>">
+                                            </div>
+                                            <div style="flex:1;">
+                                                <label for="service">Service</label>
+                                                <select id="service" name="service" required>
+                                                    <option value="">-- select --</option>
+                                                    <option value="Custom Tailoring" <%=formData &&
+                                                        formData.service==='Custom Tailoring' ? 'selected' : '' %>
+                                                        >Custom Tailoring</option>
+                                                    <option value="Alterations" <%=formData &&
+                                                        formData.service==='Alterations' ? 'selected' : '' %>
+                                                        >Alterations</option>
+                                                    <option value="Style Consultation" <%=formData &&
+                                                        formData.service==='Style Consultation' ? 'selected' : '' %>
+                                                        >Style Consultation</option>
+                                                    <option value="Wardrobe Refresh" <%=formData &&
+                                                        formData.service==='Wardrobe Refresh' ? 'selected' : '' %>
+                                                        >Wardrobe Refresh</option>
+                                                    <option value="Stitching & Repairs" <%=formData &&
+                                                        formData.service==='Stitching & Repairs' ? 'selected' : '' %>
+                                                        >Stitching & Repairs</option>
+                                                    <option value="Embroidery & Monogramming" <%=formData &&
+                                                        formData.service==='Embroidery & Monogramming' ? 'selected' : ''
+                                                        %>>Embroidery & Monogramming</option>
+                                                    <option value="Personal Shopping" <%=formData &&
+                                                        formData.service==='Personal Shopping' ? 'selected' : '' %>
+                                                        >Personal Shopping</option>
+                                                    <option value="Suit Fitting & Design" <%=formData &&
+                                                        formData.service==='Suit Fitting & Design' ? 'selected' : '' %>
+                                                        >Suit Fitting & Design</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top:12px;">
+                                            <label for="date">Preferred Date</label>
+                                            <input type="date" id="date" name="date"
+                                                value="<%= formData && formData.date ? formData.date : '' %>">
+                                        </div>
+                                        <div style="margin-top:12px;">
+                                            <label for="message">Additional Details</label>
+                                            <textarea id="message" name="message"
+                                                rows="4"><%= formData && formData.message ? formData.message : '' %></textarea>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button class="btn-gold" type="submit" style="padding:10px 24px;">Submit
+                                                Booking</button>
+                                        </div>
+                                    </form>
+                                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-title">Elegant Fashion</div>
+                    <div style="margin-bottom:16px;">Crafting timeless elegance through premium fashion and exceptional
+                        quality.
+                    </div>
+                    <div class="footer-left-social" aria-label="Follow us">
+                        <a class="fb" href="https://www.facebook.com" target="_blank" rel="noreferrer"
+                            aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.06 5.66 21.18 10.44 21.95v-6.93H8.07v-2.99h2.37V9.41c0-2.35 1.4-3.64 3.54-3.64 1.02 0 2.09.18 2.09.18v2.30h-1.17c-1.15 0-1.51.72-1.51 1.46v1.75h2.57l-.41 2.99h-2.16v6.93C18.34 21.18 22 17.06 22 12.07z" />
+                            </svg>
+                        </a>
+                        <a class="ig" href="https://www.instagram.com" target="_blank" rel="noreferrer"
+                            aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.9A4.1 4.1 0 1 0 16.1 12 4.11 4.11 0 0 0 12 7.9zm6.4-2a1.2 1.2 0 1 0 1.2 1.2 1.2 1.2 0 0 0-1.2-1.2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Nav active state and keyboard support
+            const navButtons = document.querySelectorAll("nav button");
+            navButtons.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    navButtons.forEach((b) => b.classList.remove("active"));
+                    btn.classList.add("active");
+                });
+                btn.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        btn.click();
+                    }
+                });
+            });
+
+            // Newsletter form (demo)
+            const newsletterForm = document.querySelector(".newsletter-form");
+            newsletterForm?.addEventListener("submit", (e) => {
+                e.preventDefault();
+                alert("Thank you for subscribing!");
+            });
+
+            // Sticky header shadow
+            const header = document.querySelector("header");
+            const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
+            const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
+            function updateHeaderShadow() {
+                if (!header) return;
+                header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
+            }
+            updateHeaderShadow();
+            window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+
+            // Search and Cart actions (demo)
+            document
+                .querySelector('.search-form')
+                ?.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const query = e.target.querySelector('input').value.trim();
+                    if (query) {
+                        alert(`Searching for: "${query}" - functionality coming soon!`);
+                    } else {
+                        alert("Please enter a search term.");
+                    }
+                });
+
+            document
+                .querySelector('.header-actions button[title="Cart"]')
+                ?.addEventListener("click", () => {
+                    location.href = '/cart';
+                });
+
+            document
+                .querySelector('.header-actions button[title="Wishlist"]')
+                ?.addEventListener("click", () => {
+                    location.href = '/wishlist';
+                });
+
+            // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
+            const accountBtn = document.getElementById("accountBtn");
+            const accountMenu = document.getElementById("accountMenu");
+
+            function openMenu() {
+                if (!accountMenu || !accountBtn) return;
+                accountMenu.classList.add("open");
+                accountBtn.setAttribute("aria-expanded", "true");
+                const firstItem = accountMenu.querySelector(".dropdown-item");
+                firstItem?.focus();
+            }
+
+            function closeMenu() {
+                if (!accountMenu || !accountBtn) return;
+                accountMenu.classList.remove("open");
+                accountBtn.setAttribute("aria-expanded", "false");
+            }
+
+            function toggleMenu() {
+                if (!accountMenu || !accountBtn) return;
+                const isOpen = accountMenu.classList.contains("open");
+                isOpen ? closeMenu() : openMenu();
+            }
+
+            accountBtn?.addEventListener("click", (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // Close on outside click
+            document.addEventListener("click", (e) => {
+                if (!accountMenu || !accountBtn) return;
+                const target = e.target;
+                const clickInsideMenu = accountMenu.contains(target);
+                const clickOnBtn = accountBtn.contains(target);
+                if (!clickInsideMenu && !clickOnBtn) {
+                    closeMenu();
+                }
+            });
+
+            // Close menu when clicking any menu item
+            accountMenu?.addEventListener("click", (e) => {
+                const a = e.target.closest("a.dropdown-item");
+                if (a) {
+                    // Allow navigation; just close the menu visually
+                    closeMenu();
+                }
+            });
+
+            // Keyboard handling: Escape to close, Tab to cycle within menu
+            document.addEventListener("keydown", (e) => {
+                if (!accountMenu || !accountBtn) return;
+
+                if (e.key === "Escape" && accountMenu.classList.contains("open")) {
+                    e.preventDefault();
+                    closeMenu();
+                    accountBtn.focus();
+                    return;
+                }
+
+                if (e.key === "Tab" && accountMenu.classList.contains("open")) {
+                    const focusables = Array.from(
+                        accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
+                    );
+                    if (focusables.length === 0) return;
+
+                    const currentIndex = focusables.indexOf(document.activeElement);
+                    let nextIndex = currentIndex;
+
+                    if (e.shiftKey) {
+                        nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
+                    } else {
+                        nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
+                    }
+
+                    // If focus is not inside menu yet, start at first/last based on tab direction
+                    if (currentIndex === -1) {
+                        nextIndex = e.shiftKey ? focusables.length - 1 : 0;
+                    }
+
+                    e.preventDefault();
+                    focusables[nextIndex].focus();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
