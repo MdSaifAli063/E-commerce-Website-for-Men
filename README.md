@@ -53,7 +53,8 @@ A clean, responsive e‑commerce starter site focused on premium men's fashion �
 🧩 Routes (primary)
 
 - GET /, /home — Home
-- GET /products, /services, /about, /contact — Pages (some protected)
+- GET /products, /services, /booking, /about, /contact — Pages (some protected)
+- POST /booking — Submit a service booking request (protected)
 - GET /login, POST /login — Sign in
 - GET /signup, POST /signup — Register
 - GET /forgot-password, POST /forgot-password — Request reset
@@ -88,12 +89,13 @@ A clean, responsive e‑commerce starter site focused on premium men's fashion �
 - bcrypt
 - crypto
 - MongoDB + Mongoose (via src/config.js that exports { User, mongoose })
-  
+
 ---
 
 ## 📂 Project Structure
 
 Example layout:
+
 - /public
   - home.ejs
   - login.ejs
@@ -108,6 +110,7 @@ Example layout:
 - README.md
 
 Note:
+
 - The app renders EJS templates from public, and serves static assets at /static from the same directory. For security, consider serving only an assets subfolder as static in production (see Hardening section).
 
 ---
