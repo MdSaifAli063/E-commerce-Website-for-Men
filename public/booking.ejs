@@ -118,43 +118,92 @@
 
         /* form styles from contact page */
         .contact-wrap {
+            position: relative;
             max-width: 800px;
             margin: 28px auto;
             display: grid;
             grid-template-columns: 1fr;
             gap: 28px;
             align-items: start;
+            background: #fff;
+            padding: 32px 32px 32px 40px;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+        }
+
+        .contact-wrap::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #d4af37, #f4e4a6);
+            border-radius: 24px 0 0 24px;
         }
 
         .contact-form {
             background: #fff;
-            padding: 24px;
-            border-radius: 14px;
-            box-shadow: 0 8px 30px rgba(26, 35, 50, 0.06);
+            padding: 40px 40px 32px 40px;
+            border-radius: 22px;
+            box-shadow: 0 12px 50px rgba(212, 175, 55, 0.12);
+            border: 1px solid #f4e4a6;
+            position: relative;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a2332;
+            margin-bottom: 6px;
         }
 
         .contact-form .row {
             display: flex;
-            gap: 12px;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .contact-form input,
         .contact-form textarea,
         .contact-form select {
-            padding: 12px;
-            border: 1px solid #ececec;
+            padding: 14px;
+            border: 1px solid #d4af37;
             border-radius: 8px;
             width: 100%;
-            font-size: 14px;
+            font-size: 15px;
             background: #fff;
             box-sizing: border-box;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: #f4e4a6;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
         }
 
         .contact-form .form-actions {
             display: flex;
             gap: 12px;
-            margin-top: 12px;
+            margin-top: 24px;
+            justify-content: flex-end;
             align-items: center;
+        }
+
+        .contact-form .form-actions .btn-gold {
+            padding: 12px 32px;
+            font-size: 16px;
+            text-transform: uppercase;
         }
 
         /* alerts from signup page */
@@ -225,160 +274,147 @@
             background: linear-gradient(90deg, #f4e4a6, #d4af37);
             transform: translateY(-2px);
         }
+
+        footer {
+            background: linear-gradient(90deg, #1a2332 80%, #d4af37 100%);
+            color: #fff;
+            padding: 64px 0 32px 0;
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 -4px 24px #d4af37;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-title {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            color: #f4e4a6;
+            text-shadow: 0 2px 8px #1a2332;
+        }
+
+        .footer-links,
+        .footer-categories,
+        .footer-service {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li,
+        .footer-categories li,
+        .footer-service li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a,
+        .footer-categories a,
+        .footer-service a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover,
+        .footer-categories a:hover,
+        .footer-service a:hover {
+            color: #d4af37;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 18px;
+        }
+
+        .footer-bottom button {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 8px;
+            transition: color 0.2s;
+        }
+
+        .footer-bottom button:hover {
+            color: #d4af37;
+            text-decoration: underline;
+        }
+
+        .footer-left-social {
+            margin-top: 24px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .footer-left-social a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+        }
+
+        .footer-left-social a.fb {
+            background: #1877F2;
+        }
+
+        .footer-left-social a.ig {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .footer-left-social a.tw {
+            background: #1DA1F2;
+        }
+
+        .footer-left-social a.li {
+            background: #0A66C2;
+        }
+
+        .footer-left-social a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+        }
+
+        @media (max-width: 900px) {
+            .footer-left-social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="top-marquee" role="region" aria-label="Site announcement">
-        <div class="marquee-content">Free delivery on orders over $50 — limited time offer!</div>
-    </div>
-    <header>
-        <div class="container header-content">
-            <!-- Site Title on left -->
-            <button class="site-title" onclick="location.href='/'" aria-label="Go to home">Elegant Fashion</button>
-
-            <!-- Navigation in center -->
-            <nav>
-                <button class="<%= currentPage === 'home' ? 'active' : '' %>" onclick="location.href='/'">Home</button>
-                <button class="<%= currentPage === 'products' ? 'active' : '' %>"
-                    onclick="location.href='/products'">Products</button>
-                <button class="<%= currentPage === 'services' ? 'active' : '' %>"
-                    onclick="location.href='/services'">Services</button>
-                <button class="<%= currentPage === 'about' ? 'active' : '' %>"
-                    onclick="location.href='/about'">About</button>
-                <button class="<%= currentPage === 'contact' ? 'active' : '' %>"
-                    onclick="location.href='/contact'">Contact</button>
-                <button class="<%= currentPage === 'booking' ? 'active' : '' %>"
-                    onclick="location.href='/booking'">Book</button>
-
-
-                <!-- Actions: Search, Wishlist, Cart, Account -->
-                <div class="header-actions">
-                    <!-- Search -->
-                    <form class="search-form">
-                        <input type="text" placeholder="Search products...">
-                        <button type="submit" title="Search" aria-label="Search">
-                            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                        </button>
-                    </form>
-
-                    <!-- Wishlist -->
-                    <!-- Wishlist -->
-                    <button class="icon wishlist-btn" title="Wishlist" aria-label="Wishlist">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="heart-icon">
-                            <path
-                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                            </path>
-                        </svg>
-                    </button>
-
-                    <!-- Cart -->
-                    <button class="icon" title="Cart" aria-label="Cart">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                            <path d="M3 6h18"></path>
-                            <path d="M16 10a4 4 0 0 1-8 0"></path>
-                        </svg>
-                    </button>
-
-                    <!-- Account dropdown -->
-                    <div class="dropdown">
-                        <% const isAuth=!!user; const displayName=(user && user.name) ? user.name : 'Account' ; %>
-                            <button class="account-btn" id="accountBtn" aria-haspopup="menu" aria-expanded="false"
-                                aria-controls="accountMenu">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <circle cx="12" cy="7" r="4" stroke="#ffffff" stroke-width="1.8"></circle>
-                                    <path d="M4 20c0-4 8-4 8-4s8 0 8 4" stroke="#ffffff" stroke-width="1.8"
-                                        stroke-linecap="round"></path>
-                                </svg>
-                                <span class="account-label">
-                                    <%= displayName %>
-                                </span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M6 9l6 6 6-6" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </svg>
-                            </button>
-
-                            <div id="accountMenu" class="dropdown-menu" role="menu">
-                                <% if (!isAuth) { %>
-                                    <a class="dropdown-item" href="/login" role="menuitem">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" stroke="currentColor"
-                                                stroke-width="1.5" />
-                                            <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M15 12H3" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" />
-                                        </svg>
-                                        Log in
-                                    </a>
-                                    <a class="dropdown-item" href="/signup" role="menuitem">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5">
-                                            </circle>
-                                            <path d="M4 20c0-4 8-4 8-4s8 0 8 4" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round">
-                                            </path>
-                                            <path d="M8 12h8" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round"></path>
-                                        </svg>
-                                        Sign up
-                                    </a>
-                                    <!-- Forgot password removed as requested -->
-                                    <% } else { %>
-                                        <div class="dropdown-item" role="menuitem" tabindex="-1" aria-disabled="true"
-                                            style="opacity:.85;cursor:default;">
-                                            Signed in as <strong style="margin-left:6px;">
-                                                <%= displayName %>
-                                            </strong>
-                                        </div>
-                                        <hr class="dropdown-sep" />
-                                        <a class="dropdown-item" href="/profile" role="menuitem">
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                                aria-hidden="true">
-                                                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5">
-                                                </circle>
-                                                <path d="M4 20c0-4 8-4 8-4s8 0 8 4" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round"></path>
-                                            </svg>
-                                            Profile
-                                        </a>
-                                        <a class="dropdown-item" href="/orders" role="menuitem">
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                                aria-hidden="true">
-                                                <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="1.5"></path>
-                                                <path d="M7 10h10M7 13h10" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round"></path>
-                                            </svg>
-                                            Orders
-                                        </a>
-                                        <hr class="dropdown-sep" />
-                                        <a class="dropdown-item" href="/logout" role="menuitem">
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                                aria-hidden="true">
-                                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
-                                                    stroke="currentColor" stroke-width="1.5" />
-                                                <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M15 12H3" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" />
-                                            </svg>
-                                            Logout
-                                        </a>
-                                        <% } %>
-                            </div>
-                    </div>
-                </div>
-        </div>
-    </header>
-
+   <%- include('./components/_back-to-home') %>
     <main>
         <section class="hero-section"
             style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%);">
@@ -499,7 +535,7 @@
                             aria-label="Facebook">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path
-                                    d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.06 5.66 21.18 10.44 21.95v-6.93H8.07v-2.99h2.37V9.41c0-2.35 1.4-3.64 3.54-3.64 1.02 0 2.09.18 2.09.18v2.30h-1.17c-1.15 0-1.51.72-1.51 1.46v1.75h2.57l-.41 2.99h-2.16v6.93C18.34 21.18 22 17.06 22 12.07z" />
+                                    d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.06 5.66 21.18 10.44 21.95v-6.93H8.07v-2.99h2.37V9.41c0-2.35 1.4-3.64 3.54-3.64 1.02 0 2.09.18 2.09.18v2.3h-1.17c-1.15 0-1.51.72-1.51 1.46v1.75h2.57l-.41 2.99h-2.16v6.93C18.34 21.18 22 17.06 22 12.07z" />
                             </svg>
                         </a>
                         <a class="ig" href="https://www.instagram.com" target="_blank" rel="noreferrer"
@@ -509,10 +545,64 @@
                                     d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.9A4.1 4.1 0 1 0 16.1 12 4.11 4.11 0 0 0 12 7.9zm6.4-2a1.2 1.2 0 1 0 1.2 1.2 1.2 1.2 0 0 0-1.2-1.2z" />
                             </svg>
                         </a>
+                        <a class="tw" href="https://www.twitter.com" target="_blank" rel="noreferrer"
+                            aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M22 5.92c-.68.3-1.4.5-2.17.6a3.78 3.78 0 0 0 1.66-2.08 7.4 7.4 0 0 1-2.4.92A3.7 3.7 0 0 0 11.5 8.6c0 .29.03.57.1.84A10.6 10.6 0 0 1 3.2 6.2a3.7 3.7 0 0 0 1.14 4.94 3.6 3.6 0 0 1-1.68-.46v.05a3.7 3.7 0 0 0 2.97 3.63c-.42.12-.86.18-1.31.18-.32 0-.63-.03-.93-.08a3.7 3.7 0 0 0 3.45 2.58A7.42 7.42 0 0 1 2 19.54 10.5 10.5 0 0 0 7.29 21c6.88 0 10.64-5.7 10.64-10.64v-.48A7.6 7.6 0 0 0 22 5.92z" />
+                            </svg>
+                        </a>
+                        <a class="li" href="https://www.linkedin.com" target="_blank" rel="noreferrer"
+                            aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M20.45 20.45h-3.55v-5.4c0-1.29-.02-2.96-1.8-2.96-1.8 0-2.07 1.4-2.07 2.86v5.5H8.9V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.47v6.78zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.58V9h3.53v11.45z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-title">Categories</div>
+                    <ul class="footer-categories">
+                        <li><a href="#">Suits</a></li>
+                        <li><a href="#">Coats</a></li>
+                        <li><a href="#">Pants</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Sharwani</a></li>
+                        <li><a href="#">Kurtas</a></li>
+                        <li><a href="#">Waistcoats</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-title">Customer Service</div>
+                    <ul class="footer-service">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
+            <div class="footer-bottom">
+                <div style="font-size:16px; color:rgba(255,255,255,0.7);">© 2024 Elegant Fashion. All rights reserved.
+                </div>
+                <div>
+                    <button>Terms</button>
+                    <button>Privacy</button>
+                    <button>Cookies</button>
+                </div>
+            </div>
+        </div></a>
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
