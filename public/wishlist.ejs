@@ -1067,13 +1067,26 @@
                 <div class="section-title">Wishlist Items</div>
                 <div class="section-desc">Items you've saved</div>
                 <div style="max-width:800px; margin:0 auto;">
-                    <div class="card" style="margin-bottom:20px;" onclick="alert('Removed from wishlist!')">
-                        <div class="card-body">
-                            <div class="card-title">Royal Silk Sharwani</div>
-                            <div class="card-desc">Premium quality</div>
-                            <div class="card-price">$499.99</div>
-                        </div>
-                    </div>
+                    <% const items=wishlist || [] %>
+                        <% if (items.length===0) { %>
+                            <p style="text-align:center; color:#4a5568; font-size:18px;">Your wishlist is empty.</p>
+                            <% } else { %>
+                                <% items.forEach(function(item){ %>
+                                    <div class="card" style="margin-bottom:20px;" data-title="<%= item.title %>">
+                                        <div class="card-body">
+                                            <div class="card-title">
+                                                <%= item.title %>
+                                            </div>
+                                            <div class="card-desc">
+                                                <%= item.desc %>
+                                            </div>
+                                            <div class="card-price">
+                                                <%= item.price %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                                        <% } %>
                 </div>
             </div>
         </section>
@@ -1220,6 +1233,26 @@
                 ?.addEventListener("click", () => {
                     location.href = '/wishlist';
                 });
+
+            // allow clicking a wishlist card to remove it from list
+            document.querySelectorAll('.card[data-title]').forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-title');
+                    fetch('/wishlist/remove', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `title=${encodeURIComponent(title)}`
+                    }).then(r => r.json()).then(() => {
+                        card.remove();
+                        if (document.querySelectorAll('.card[data-title]').length === 0) {
+                            const container = document.querySelector('section .container > div[style*="max-width:800px"]');
+                            if (container) {
+                                container.innerHTML = '<p style="text-align:center; color:#4a5568; font-size:18px;">Your wishlist is empty.</p>';
+                            }
+                        }
+                    });
+                });
+            });
 
             // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
             const accountBtn = document.getElementById("accountBtn");
