@@ -653,8 +653,42 @@ app.get("/cart", requireAuth, (req, res) => {
 });
 
 app.get("/wishlist", requireAuth, (req, res) => {
-  res.render("wishlist");
+  // provide wishlist array to template (defaults to empty)
+  res.render("wishlist", { wishlist: req.session.wishlist || [] });
 });
+
+app.post(
+  "/wishlist/add",
+  requireAuth,
+  express.urlencoded({ extended: false }),
+  (req, res) => {
+    const { title, desc, price } = req.body;
+    if (!req.session.wishlist) req.session.wishlist = [];
+    // avoid duplicates based on title
+    if (title && !req.session.wishlist.find((i) => i.title === title)) {
+      req.session.wishlist.push({ title, desc, price });
+    }
+    res.json({ success: true, count: req.session.wishlist.length });
+  },
+);
+
+app.post(
+  "/wishlist/remove",
+  requireAuth,
+  express.urlencoded({ extended: false }),
+  (req, res) => {
+    const { title } = req.body;
+    if (req.session.wishlist) {
+      req.session.wishlist = req.session.wishlist.filter(
+        (i) => i.title !== title,
+      );
+    }
+    res.json({
+      success: true,
+      count: req.session.wishlist ? req.session.wishlist.length : 0,
+    });
+  },
+);
 
 // Category routes
 app.get("/components/suits", requireAuth, (_req, res) => {
