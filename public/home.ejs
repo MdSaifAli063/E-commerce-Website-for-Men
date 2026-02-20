@@ -2383,10 +2383,21 @@
           location.href = '/wishlist';
         });
 
-      // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
-      const accountBtn = document.getElementById("accountBtn");
-      const accountMenu = document.getElementById("accountMenu");
-
+      // attach wishlist click handler to existing buttons on cards
+      document.querySelectorAll('.card-actions [title="Add to Wishlist"]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const card = btn.closest('.card');
+          const title = card.querySelector('.card-title')?.textContent.trim();
+          const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+          const price = card.querySelector('.card-price')?.textContent.trim() || '';
+          fetch('/wishlist/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+          }).then(r => r.json()).then(data => { alert('Added to wishlist!'); });
+        });
+      });
       function openMenu() {
         if (!accountMenu || !accountBtn) return;
         accountMenu.classList.add("open");
