@@ -414,7 +414,61 @@
 </head>
 
 <body>
-        <%- include('./_back-to-home') %>
+    <!-- back-to-home arrow -->
+    <div class="back-home" aria-hidden="false">
+        <a href="/" class="back-home-link" aria-label="Back to home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 12H6"></path>
+                <path d="M12 19l-7-7 7-7"></path>
+            </svg>
+        </a>
+    </div>
+    <style>
+        /* back button styles copied from component */
+        .back-home {
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            z-index: 9999;
+        }
+
+        .back-home-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1a2332;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(16, 24, 40, 0.12);
+            transition: transform .12s ease, box-shadow .12s ease;
+        }
+
+        .back-home-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 24, 40, 0.18);
+        }
+
+        .back-home-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width:480px) {
+            .back-home {
+                top: 10px;
+                left: 10px;
+            }
+
+            .back-home-link {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
 
     <main>
         <section class="hero-section"
