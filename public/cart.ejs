@@ -1047,24 +1047,36 @@
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-title">Cart Items</div>
-                <div class="section-desc">Items in your cart</div>
-                <div style="max-width:800px; margin:0 auto;">
-                    <div class="card" style="margin-bottom:20px;" onclick="alert('Removed from cart!')">
-                        <div class="card-body">
-                            <div class="card-title">Royal Silk Sharwani</div>
-                            <div class="card-desc">Quantity: 1</div>
-                            <div class="card-price">$499.99</div>
-                        </div>
+        <% const items=(typeof cart !=='undefined' ? cart : []) || []; %>
+            <section class="section">
+                <div class="container">
+                    <div class="section-title">Cart Items</div>
+                    <div class="section-desc">Items in your cart</div>
+                    <div style="max-width:800px; margin:0 auto;">
+                        <% if (items.length===0) { %>
+                            <p style="text-align:center; color:#4a5568; font-size:18px;">Your cart is empty.</p>
+                            <% } else { %>
+                                <% items.forEach(item=> { %>
+                                    <div class="card" style="margin-bottom:20px;" data-title="<%= item.title %>">
+                                        <div class="card-body">
+                                            <div class="card-title">
+                                                <%= item.title %>
+                                            </div>
+                                            <div class="card-desc">Quantity: <%= item.quantity || 1 %>
+                                            </div>
+                                            <div class="card-price">
+                                                <%= item.price %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                                        <% } %>
+                    </div>
+                    <div style="text-align:center; margin-top:48px;">
+                        <button class="btn-gold">Checkout</button>
                     </div>
                 </div>
-                <div style="text-align:center; margin-top:48px;">
-                    <button class="btn-gold">Checkout</button>
-                </div>
-            </div>
-        </section>
+            </section>
     </main>
 
     <footer>
@@ -1202,6 +1214,26 @@
                 ?.addEventListener("click", () => {
                     location.href = '/cart';
                 });
+
+            // allow clicking a cart item to remove it
+            document.querySelectorAll('.card[data-title]').forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-title');
+                    fetch('/cart/remove', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `title=${encodeURIComponent(title)}`
+                    }).then(r => r.json()).then(() => {
+                        card.remove();
+                        if (document.querySelectorAll('.card[data-title]').length === 0) {
+                            const container = document.querySelector('section .container > div[style*="max-width:800px"]');
+                            if (container) {
+                                container.innerHTML = '<p style="text-align:center; color:#4a5568; font-size:18px;">Your cart is empty.</p>';
+                            }
+                        }
+                    });
+                });
+            });
 
             document
                 .querySelector('.header-actions button[title="Wishlist"]')
