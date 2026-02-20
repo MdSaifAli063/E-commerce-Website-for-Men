@@ -649,7 +649,8 @@ app.get("/orders", requireAuth, (req, res) => {
 });
 
 app.get("/cart", requireAuth, (req, res) => {
-  res.render("cart");
+  // pass current cart (empty array if none) to template
+  res.render("cart", { cart: req.session.cart || [] });
 });
 
 app.get("/wishlist", requireAuth, (req, res) => {
@@ -687,6 +688,41 @@ app.post(
       success: true,
       count: req.session.wishlist ? req.session.wishlist.length : 0,
     });
+  },
+);
+
+// cart manipulation endpoints
+app.post(
+  "/cart/add",
+  requireAuth,
+  express.urlencoded({ extended: false }),
+  (req, res) => {
+    const { title, desc, price } = req.body;
+    if (!req.session.cart) req.session.cart = [];
+    const existing = req.session.cart.find((i) => i.title === title);
+    if (existing) {
+      existing.quantity = (existing.quantity || 1) + 1;
+    } else if (title) {
+      req.session.cart.push({ title, desc, price, quantity: 1 });
+    }
+    const count = req.session.cart.reduce((a, i) => a + (i.quantity || 0), 0);
+    res.json({ success: true, count });
+  },
+);
+
+app.post(
+  "/cart/remove",
+  requireAuth,
+  express.urlencoded({ extended: false }),
+  (req, res) => {
+    const { title } = req.body;
+    if (req.session.cart) {
+      req.session.cart = req.session.cart.filter((i) => i.title !== title);
+    }
+    const count = req.session.cart
+      ? req.session.cart.reduce((a, i) => a + (i.quantity || 0), 0)
+      : 0;
+    res.json({ success: true, count });
   },
 );
 
