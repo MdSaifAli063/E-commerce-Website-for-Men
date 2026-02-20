@@ -2383,6 +2383,22 @@
           location.href = '/wishlist';
         });
 
+      // attach cart behavior to existing buttons
+      document.querySelectorAll('.card-action-btn.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const card = btn.closest('.card');
+          const title = card.querySelector('.card-title')?.textContent.trim();
+          const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+          const price = card.querySelector('.card-price')?.textContent.trim() || '';
+          fetch('/cart/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+          });
+        });
+      });
+
       // attach wishlist click handler to existing buttons on cards
       document.querySelectorAll('.card-actions [title="Add to Wishlist"]').forEach(btn => {
         btn.addEventListener('click', e => {
