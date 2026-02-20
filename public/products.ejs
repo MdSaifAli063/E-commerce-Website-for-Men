@@ -2078,6 +2078,26 @@
                 }
             });
 
+            // attach behavior to existing wishlist buttons on each card
+            (function () {
+                document.querySelectorAll('.card-actions [title="Add to Wishlist"]').forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        e.stopPropagation();
+                        const card = btn.closest('.card');
+                        const title = card.querySelector('.card-title')?.textContent.trim();
+                        const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+                        const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                        fetch('/wishlist/add', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                        }).then(r => r.json()).then(() => {
+                            alert('Added to wishlist!');
+                        });
+                    });
+                });
+            })();
+
             // Load more products logic: show 4 more cards per click
             (function () {
                 const grid = document.querySelector('.grid.products');
