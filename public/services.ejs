@@ -538,6 +538,18 @@
             color: #1a2332;
             margin-bottom: 24px;
             letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #d4af37;
+            margin: 8px auto 0;
+            border-radius: 2px;
         }
 
         .section-title.white {
@@ -546,9 +558,13 @@
         }
 
         .section-desc {
-            font-size: 22px;
+            font-size: 24px;
             color: #4a5568;
             margin-bottom: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-desc.white {
@@ -559,7 +575,8 @@
 
         .grid {
             display: grid;
-            gap: 40px;
+            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
 
         @media (min-width: 900px) {
@@ -614,6 +631,13 @@
 
         .card-body {
             padding: 32px 24px 24px 24px;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #d4af37;
         }
 
         .card-label {
@@ -1069,6 +1093,7 @@
                     <a href="/booking?service=Custom%20Tailoring" style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">🧵</div>
                                 <div class="card-title">Custom Tailoring</div>
                                 <div class="card-desc">Personalized fits for suits and shirts.</div>
                             </div>
@@ -1077,6 +1102,7 @@
                     <a href="/booking?service=Alterations" style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">✂️</div>
                                 <div class="card-title">Alterations</div>
                                 <div class="card-desc">Expert adjustments for perfect fit.</div>
                             </div>
@@ -1085,6 +1111,7 @@
                     <a href="/booking?service=Style%20Consultation" style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">💼</div>
                                 <div class="card-title">Style Consultation</div>
                                 <div class="card-desc">One-on-one advice to refine your look.</div>
                             </div>
@@ -1093,6 +1120,7 @@
                     <a href="/booking?service=Wardrobe%20Refresh" style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">👕</div>
                                 <div class="card-title">Wardrobe Refresh</div>
                                 <div class="card-desc">Update and modernize your existing pieces.</div>
                             </div>
@@ -1101,6 +1129,7 @@
                     <a href="/booking?service=Stitching%20%26%20Repairs" style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">🪡</div>
                                 <div class="card-title">Stitching & Repairs</div>
                                 <div class="card-desc">High-quality stitching and mending services.</div>
                             </div>
@@ -1110,6 +1139,7 @@
                         style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">🧷</div>
                                 <div class="card-title">Embroidery & Monogramming</div>
                                 <div class="card-desc">Personalize garments with custom designs.</div>
                             </div>
@@ -1118,6 +1148,7 @@
                     <a href="/booking?service=Personal%20Shopping" style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">🛍️</div>
                                 <div class="card-title">Personal Shopping</div>
                                 <div class="card-desc">Assistance selecting the perfect outfits.</div>
                             </div>
@@ -1127,6 +1158,7 @@
                         style="text-decoration:none;color:inherit;">
                         <div class="card">
                             <div class="card-body">
+                                <div class="card-icon">👔</div>
                                 <div class="card-title">Suit Fitting & Design</div>
                                 <div class="card-desc">Full-service design from measurement to finish.</div>
                             </div>
