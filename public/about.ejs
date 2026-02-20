@@ -457,6 +457,49 @@
             border-radius: 0 0 48px 48px;
         }
 
+        /* story section styles */
+        .story-grid {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .story-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 18px;
+        }
+
+        .story-quote {
+            font-size: 20px;
+            font-style: italic;
+            color: #1a2332;
+            border-left: 4px solid #d4af37;
+            padding-left: 16px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 800px) {
+            .story-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .story-image img {
+                max-width: 100%;
+            }
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -547,6 +590,7 @@
             font-size: 22px;
             color: #4a5568;
             margin-bottom: 40px;
+            text-align: center;
         }
 
         .section-desc.white {
@@ -1053,12 +1097,25 @@
             </div>
         </section>
 
-        <section class="section bg-cream">
+        <section class="section bg-cream story-section">
             <div class="container">
                 <div class="section-title">Our Story</div>
                 <div class="section-desc">Dedicated to blending tradition with modern style</div>
-                <p style="font-size:18px; line-height:1.6; color:#4a5568;">Elegant Fashion was founded with a passion
-                    for men's fashion that combines heritage craftsmanship with contemporary design.</p>
+                <div class="story-grid">
+                    <div class="story-image">
+                        <img src="/images/atelier.jpg" alt="Tailoring atelier" />
+                    </div>
+                    <div class="story-text">
+                        <p>Elegant Fashion was founded with a passion for men's fashion that combines heritage
+                            craftsmanship with contemporary design. What began as a small tailoring shop has grown
+                            into a beloved brand known for its attention to detail and commitment to quality.</p>
+                        <p>Over the years, we've opened multiple studios, collaborated with top designers, and
+                            helped thousands of clients look and feel their best. Our philosophy is simple: clothing
+                            should tell a story, and every stitch matters.</p>
+                        <blockquote class="story-quote">"Style is a way to say who you are without having to speak."
+                        </blockquote>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
