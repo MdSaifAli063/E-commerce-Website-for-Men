@@ -489,40 +489,7 @@
 </head>
 
 <body>
-    <div class="top-marquee" role="region" aria-label="Site announcement">
-        <div class="marquee-content">Free delivery on orders over $50 — limited time offer!</div>
-    </div>
-
-    <header>
-        <div class="container header-content">
-            <button class="site-title" onclick="location.href='/'">Elegant Fashion</button>
-            <nav>
-                <button onclick="location.href='/'">Home</button>
-                <button onclick="location.href='/products'">Products</button>
-                <button onclick="location.href='/services'">Services</button>
-                <button onclick="location.href='/about'">About</button>
-                <button onclick="location.href='/contact'">Contact</button>
-            </nav>
-            <div class="header-actions">
-                <form class="search-form">
-                    <input type="text" placeholder="Search products...">
-                    <button type="submit">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </button>
-                </form>
-                <button class="icon" title="Cart">
-                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                        <path d="M3 6h18"></path>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </header>
+    <%- include('partials/header.ejs') %>
 
     <main>
         <section class="hero-section"
@@ -595,40 +562,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-title">Elegant Fashion</div>
-                    <p>Crafting timeless elegance through premium fashion.</p>
-                </div>
-                <div>
-                    <div class="footer-title">Quick Links</div>
-                    <ul style="list-style:none; padding:0;">
-                        <li><a href="/" style="color:#fff; text-decoration:none;">Home</a></li>
-                        <li><a href="/products" style="color:#fff; text-decoration:none;">Products</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-title">Categories</div>
-                    <ul style="list-style:none; padding:0;">
-                        <li><a href="#" style="color:#fff; text-decoration:none;">
-                                <%= categoryName %>
-                            </a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-title">Support</div>
-                    <ul style="list-style:none; padding:0;">
-                        <li><a href="/contact" style="color:#fff; text-decoration:none;">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>© 2024 Elegant Fashion. All rights reserved.</div>
-            </div>
-        </div>
-    </footer>
+    <%- include('partials/footer.ejs') %>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
