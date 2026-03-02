@@ -942,936 +942,943 @@
 <body>
     <%- include('partials/header.ejs') %>
 
-    <main>
-        <section class="section"
-            style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%); padding: 80px 0; border-radius: 0 0 48px 48px; position: relative; overflow: hidden; margin-top: 0; margin-bottom: 60px;">
-            <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.3); border-radius: 0 0 48px 48px;">
-            </div>
-            <div class="container" style="position: relative; z-index: 1; text-align: center;">
-                <div style="margin-bottom: 24px;">
-                    <h1
-                        style="font-size: 60px; font-family: 'Poppins', Arial, sans-serif; font-weight: 900; color: #d4af37;; margin: 0 0 16px 0; line-height: 1.2; letter-spacing: 2px; text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
-                        Discover Our Premium Collection
-                    </h1>
-                    <p
-                        style="font-size: 18px; color: #e5e7eb; margin: 0 0 32px 0; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                        Explore our curated selection of premium men's fashion. From formal suits to traditional wear,
-                        find the perfect outfit for every occasion.
-                    </p>
+        <main>
+            <section class="section"
+                style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%); padding: 80px 0; border-radius: 0 0 48px 48px; position: relative; overflow: hidden; margin-top: 0; margin-bottom: 60px;">
+                <div
+                    style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.3); border-radius: 0 0 48px 48px;">
                 </div>
-                <div style="margin-top: 48px; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">20+</div>
-                        <div style="font-size: 14px; color: #d1d5db;">Premium Products</div>
+                <div class="container" style="position: relative; z-index: 1; text-align: center;">
+                    <div style="margin-bottom: 24px;">
+                        <h1
+                            style="font-size: 60px; font-family: 'Poppins', Arial, sans-serif; font-weight: 900; color: #d4af37;; margin: 0 0 16px 0; line-height: 1.2; letter-spacing: 2px; text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
+                            Discover Our Premium Collection
+                        </h1>
+                        <p
+                            style="font-size: 18px; color: #e5e7eb; margin: 0 0 32px 0; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            Explore our curated selection of premium men's fashion. From formal suits to traditional
+                            wear,
+                            find the perfect outfit for every occasion.
+                        </p>
                     </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">25-30%</div>
-                        <div style="font-size: 14px; color: #d1d5db;">Special Discounts</div>
-                    </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">⭐⭐⭐⭐⭐</div>
-                        <div style="font-size: 14px; color: #d1d5db;">Customer Rated</div>
+                    <div style="margin-top: 48px; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 32px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">20+
+                            </div>
+                            <div style="font-size: 14px; color: #d1d5db;">Premium Products</div>
+                        </div>
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 32px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">25-30%
+                            </div>
+                            <div style="font-size: 14px; color: #d1d5db;">Special Discounts</div>
+                        </div>
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 32px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">⭐⭐⭐⭐⭐
+                            </div>
+                            <div style="font-size: 14px; color: #d1d5db;">Customer Rated</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-title">All Products</div>
-                <div class="section-desc">Discover our complete range</div>
-                <div class="grid products" id="productGrid">
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Royal Silk Sharwani">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Royal Silk Sharwani</div>
-                            <div class="card-desc">Exquisite silk sharwani.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Tailored Dress Pants">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Tailored Dress Pants</div>
-                            <div class="card-desc">Perfectly tailored dress pants with premium fabric.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+            <section class="section">
+                <div class="container">
+                    <div class="section-title">All Products</div>
+                    <div class="section-desc">Discover our complete range</div>
+                    <div class="grid products" id="productGrid">
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Royal Silk Sharwani">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Royal Silk Sharwani</div>
+                                <div class="card-desc">Exquisite silk sharwani.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Premium Wool Overcoat">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Premium Wool Overcoat</div>
-                            <div class="card-desc">Luxurious wool overcoat with elegance.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Classic Blazer">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Classic Blazer</div>
-                            <div class="card-desc">Classic blazer for timeless style.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Tailored Dress Pants">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Tailored Dress Pants</div>
+                                <div class="card-desc">Perfectly tailored dress pants with premium fabric.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/2733446/pexels-photo-2733446.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Formal Dress Shirt">
-                        <div class="card-body">
-                            <div class="card-label">New</div>
-                            <div class="card-title">Formal Dress Shirt</div>
-                            <div class="card-desc">Premium formal shirt with premium fabric.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1389460/pexels-photo-1389460.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Tweed Blazer">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Tweed Blazer</div>
-                            <div class="card-desc">Classic tweed blazer for sophisticated look.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹18,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹13,500 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Premium Wool Overcoat">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Premium Wool Overcoat</div>
+                                <div class="card-desc">Luxurious wool overcoat with elegance.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Chinos Trousers">
-                        <div class="card-body">
-                            <div class="card-label">New</div>
-                            <div class="card-title">Chinos Trousers</div>
-                            <div class="card-desc">Modern chinos for casual and semi-formal wear.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹9,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,750 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Linen Waistcoat">
-                        <div class="card-body">
-                            <div class="card-label">Premium</div>
-                            <div class="card-title">Linen Waistcoat</div>
-                            <div class="card-desc">Breathable linen waistcoat for summer elegance.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹12,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹9,000 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Classic Blazer">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Classic Blazer</div>
+                                <div class="card-desc">Classic blazer for timeless style.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1260881/pexels-photo-1260881.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Maroon Kurta">
-                        <div class="card-body">
-                            <div class="card-label">New</div>
-                            <div class="card-title">Maroon Kurta</div>
-                            <div class="card-desc">Traditional maroon kurta with classic embroidery.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹7,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹5,250 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/2733446/pexels-photo-2733446.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="White Dress Shirt">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">White Dress Shirt</div>
-                            <div class="card-desc">Classic white shirt perfect for any occasion.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹6,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹4,875 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/2733446/pexels-photo-2733446.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Formal Dress Shirt">
+                            <div class="card-body">
+                                <div class="card-label">New</div>
+                                <div class="card-title">Formal Dress Shirt</div>
+                                <div class="card-desc">Premium formal shirt with premium fabric.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,375 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1389460/pexels-photo-1389460.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Navy Blazer">
-                        <div class="card-body">
-                            <div class="card-label">Premium</div>
-                            <div class="card-title">Navy Blazer</div>
-                            <div class="card-desc">Elegant navy blazer for formal settings.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹20,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹14,000 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Khaki Pants">
-                        <div class="card-body">
-                            <div class="card-label">New</div>
-                            <div class="card-title">Khaki Pants</div>
-                            <div class="card-desc">Versatile khaki pants for business casual.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹5,600 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1389460/pexels-photo-1389460.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Tweed Blazer">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Tweed Blazer</div>
+                                <div class="card-desc">Classic tweed blazer for sophisticated look.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹18,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹13,500 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Embroidered Sherwani">
-                        <div class="card-body">
-                            <div class="card-label">Premium</div>
-                            <div class="card-title">Embroidered Sherwani</div>
-                            <div class="card-desc">Luxurious sherwani with intricate embroidery.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹50,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹35,000 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/2733446/pexels-photo-2733446.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Cotton Shirt">
-                        <div class="card-body">
-                            <div class="card-label">New</div>
-                            <div class="card-title">Cotton Shirt</div>
-                            <div class="card-desc">Comfortable cotton shirt for everyday wear.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹5,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹4,125 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Chinos Trousers">
+                            <div class="card-body">
+                                <div class="card-label">New</div>
+                                <div class="card-title">Chinos Trousers</div>
+                                <div class="card-desc">Modern chinos for casual and semi-formal wear.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹9,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹6,750 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1389460/pexels-photo-1389460.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Casual Blazer">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Casual Blazer</div>
-                            <div class="card-desc">Modern casual blazer for weekend style.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹14,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹10,500 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Wool Trousers">
-                        <div class="card-body">
-                            <div class="card-label">Premium</div>
-                            <div class="card-title">Wool Trousers</div>
-                            <div class="card-desc">Premium wool trousers with perfect drape.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹15,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹10,500 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Linen Waistcoat">
+                            <div class="card-body">
+                                <div class="card-label">Premium</div>
+                                <div class="card-title">Linen Waistcoat</div>
+                                <div class="card-desc">Breathable linen waistcoat for summer elegance.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹12,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹9,000 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Checked Waistcoat">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Checked Waistcoat</div>
-                            <div class="card-desc">Stylish checked waistcoat for formal occasions.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹11,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹7,700 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1260881/pexels-photo-1260881.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Traditional Kurta">
-                        <div class="card-body">
-                            <div class="card-label">New</div>
-                            <div class="card-title">Traditional Kurta</div>
-                            <div class="card-desc">Authentic traditional kurta with heritage design.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹6,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹4,875 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1260881/pexels-photo-1260881.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Maroon Kurta">
+                            <div class="card-body">
+                                <div class="card-label">New</div>
+                                <div class="card-title">Maroon Kurta</div>
+                                <div class="card-desc">Traditional maroon kurta with classic embroidery.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹7,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹5,250 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Formal Coat">
-                        <div class="card-body">
-                            <div class="card-label">Premium</div>
-                            <div class="card-title">Formal Coat</div>
-                            <div class="card-desc">Sophisticated formal coat for special events.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹35,000</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹24,500 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img"
-                            src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Premium Trousers">
-                        <div class="card-body">
-                            <div class="card-label">Sale</div>
-                            <div class="card-title">Premium Trousers</div>
-                            <div class="card-desc">High-quality premium trousers with perfect fit.</div>
-                            <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
-                                <div style="color:#888;font-size:14px;text-decoration: line-through;">₹11,500</div>
-                                <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹8,050 <span
-                                        style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
-                            </div>
-                            <div class="card-actions">
-                                <button class="card-action-btn add-to-cart" title="Add to Cart">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                                        <path d="M3 6h18"></path>
-                                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                    </svg>
-                                    Add to Cart
-                                </button>
-                                <button class="card-action-btn" title="Add to Wishlist">
-                                    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path
-                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                        </path>
-                                    </svg>
-                                </button>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/2733446/pexels-photo-2733446.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="White Dress Shirt">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">White Dress Shirt</div>
+                                <div class="card-desc">Classic white shirt perfect for any occasion.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹6,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹4,875 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1389460/pexels-photo-1389460.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Navy Blazer">
+                            <div class="card-body">
+                                <div class="card-label">Premium</div>
+                                <div class="card-title">Navy Blazer</div>
+                                <div class="card-desc">Elegant navy blazer for formal settings.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹20,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹14,000 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Khaki Pants">
+                            <div class="card-body">
+                                <div class="card-label">New</div>
+                                <div class="card-title">Khaki Pants</div>
+                                <div class="card-desc">Versatile khaki pants for business casual.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹8,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹5,600 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Embroidered Sherwani">
+                            <div class="card-body">
+                                <div class="card-label">Premium</div>
+                                <div class="card-title">Embroidered Sherwani</div>
+                                <div class="card-desc">Luxurious sherwani with intricate embroidery.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹50,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹35,000 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/2733446/pexels-photo-2733446.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Cotton Shirt">
+                            <div class="card-body">
+                                <div class="card-label">New</div>
+                                <div class="card-title">Cotton Shirt</div>
+                                <div class="card-desc">Comfortable cotton shirt for everyday wear.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹5,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹4,125 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1389460/pexels-photo-1389460.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Casual Blazer">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Casual Blazer</div>
+                                <div class="card-desc">Modern casual blazer for weekend style.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹14,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹10,500 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Wool Trousers">
+                            <div class="card-body">
+                                <div class="card-label">Premium</div>
+                                <div class="card-title">Wool Trousers</div>
+                                <div class="card-desc">Premium wool trousers with perfect drape.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹15,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹10,500 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Checked Waistcoat">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Checked Waistcoat</div>
+                                <div class="card-desc">Stylish checked waistcoat for formal occasions.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹11,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹7,700 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1260881/pexels-photo-1260881.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Traditional Kurta">
+                            <div class="card-body">
+                                <div class="card-label">New</div>
+                                <div class="card-title">Traditional Kurta</div>
+                                <div class="card-desc">Authentic traditional kurta with heritage design.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹6,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹4,875 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(25% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Formal Coat">
+                            <div class="card-body">
+                                <div class="card-label">Premium</div>
+                                <div class="card-title">Formal Coat</div>
+                                <div class="card-desc">Sophisticated formal coat for special events.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹35,000</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹24,500 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img"
+                                src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Premium Trousers">
+                            <div class="card-body">
+                                <div class="card-label">Sale</div>
+                                <div class="card-title">Premium Trousers</div>
+                                <div class="card-desc">High-quality premium trousers with perfect fit.</div>
+                                <div class="card-price" style="display:flex;flex-direction:column;gap:6px;">
+                                    <div style="color:#888;font-size:14px;text-decoration: line-through;">₹11,500</div>
+                                    <div style="font-size:20px;color:#d4af37;font-weight:bold;">₹8,050 <span
+                                            style="font-size:12px;color:#4a5568;font-weight:500;">(30% OFF)</span></div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="card-action-btn add-to-cart" title="Add to Cart">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                            <path d="M3 6h18"></path>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        Add to Cart
+                                    </button>
+                                    <button class="card-action-btn" title="Add to Wishlist">
+                                        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path
+                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more cards as needed -->
                     </div>
-                    <!-- Add more cards as needed -->
+                    <div style="text-align:center; margin-top:48px;">
+                        <button id="loadMore" class="btn-secondary">Load More</button>
+                    </div>
                 </div>
-                <div style="text-align:center; margin-top:48px;">
-                    <button id="loadMore" class="btn-secondary">Load More</button>
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <%- include('partials/footer.ejs') %>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Nav active state and keyboard support
-            const navButtons = document.querySelectorAll("nav button");
-            navButtons.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    navButtons.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
-                });
-                btn.addEventListener("keydown", (e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        btn.click();
-                    }
-                });
-            });
-
-            // Newsletter form (demo)
-            const newsletterForm = document.querySelector(".newsletter-form");
-            newsletterForm?.addEventListener("submit", (e) => {
-                e.preventDefault();
-                alert("Thank you for subscribing!");
-            });
-
-            // Sticky header shadow
-            const header = document.querySelector("header");
-            const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
-            const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
-            function updateHeaderShadow() {
-                if (!header) return;
-                header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
-            }
-            updateHeaderShadow();
-            window.addEventListener("scroll", updateHeaderShadow, { passive: true });
-
-            // Search and Cart actions (demo)
-            document
-                .querySelector('.search-form')
-                ?.addEventListener("submit", (e) => {
-                    e.preventDefault();
-                    const query = e.target.querySelector('input').value.trim();
-                    if (query) {
-                        alert(`Searching for: "${query}" - functionality coming soon!`);
-                    } else {
-                        alert("Please enter a search term.");
-                    }
-                });
-
-            document
-                .querySelector('.header-actions button[title="Cart"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/cart';
-                });
-
-            document
-                .querySelector('.header-actions button[title="Wishlist"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/wishlist';
-                });
-
-            // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
-            const accountBtn = document.getElementById("accountBtn");
-            const accountMenu = document.getElementById("accountMenu");
-
-            function openMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.add("open");
-                accountBtn.setAttribute("aria-expanded", "true");
-                const firstItem = accountMenu.querySelector(".dropdown-item");
-                firstItem?.focus();
-            }
-
-            function closeMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.remove("open");
-                accountBtn.setAttribute("aria-expanded", "false");
-            }
-
-            function toggleMenu() {
-                if (!accountMenu || !accountBtn) return;
-                const isOpen = accountMenu.classList.contains("open");
-                isOpen ? closeMenu() : openMenu();
-            }
-
-            accountBtn?.addEventListener("click", (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-
-            // Close on outside click
-            document.addEventListener("click", (e) => {
-                if (!accountMenu || !accountBtn) return;
-                const target = e.target;
-                const clickInsideMenu = accountMenu.contains(target);
-                const clickOnBtn = accountBtn.contains(target);
-                if (!clickInsideMenu && !clickOnBtn) {
-                    closeMenu();
-                }
-            });
-
-            // Close menu when clicking any menu item
-            accountMenu?.addEventListener("click", (e) => {
-                const a = e.target.closest("a.dropdown-item");
-                if (a) {
-                    // Allow navigation; just close the menu visually
-                    closeMenu();
-                }
-            });
-
-            // Keyboard handling: Escape to close, Tab to cycle within menu
-            document.addEventListener("keydown", (e) => {
-                if (!accountMenu || !accountBtn) return;
-
-                if (e.key === "Escape" && accountMenu.classList.contains("open")) {
-                    e.preventDefault();
-                    closeMenu();
-                    accountBtn.focus();
-                    return;
-                }
-
-                if (e.key === "Tab" && accountMenu.classList.contains("open")) {
-                    const focusables = Array.from(
-                        accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
-                    );
-                    if (focusables.length === 0) return;
-
-                    const currentIndex = focusables.indexOf(document.activeElement);
-                    let nextIndex = currentIndex;
-
-                    if (e.shiftKey) {
-                        nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
-                    } else {
-                        nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
-                    }
-
-                    // If focus is not inside menu yet, start at first/last based on tab direction
-                    if (currentIndex === -1) {
-                        nextIndex = e.shiftKey ? focusables.length - 1 : 0;
-                    }
-
-                    e.preventDefault();
-                    focusables[nextIndex].focus();
-                }
-            });
-
-            // attach behavior to existing wishlist buttons on each card
-            (function () {
-                document.querySelectorAll('.card-actions [title="Add to Wishlist"]').forEach(btn => {
-                    btn.addEventListener('click', e => {
-                        e.stopPropagation();
-                        const card = btn.closest('.card');
-                        const title = card.querySelector('.card-title')?.textContent.trim();
-                        const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
-                        const price = card.querySelector('.card-price')?.textContent.trim() || '';
-                        fetch('/wishlist/add', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                            body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
-                        }).then(r => r.json()).then(() => {
-                            
+        <%- include('partials/footer.ejs') %>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    // Nav active state and keyboard support
+                    const navButtons = document.querySelectorAll("nav button");
+                    navButtons.forEach((btn) => {
+                        btn.addEventListener("click", () => {
+                            navButtons.forEach((b) => b.classList.remove("active"));
+                            btn.classList.add("active");
+                        });
+                        btn.addEventListener("keydown", (e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                btn.click();
+                            }
                         });
                     });
-                });
-            })();
 
-            // attach add-to-cart behavior to buttons
-            document.querySelectorAll('.card-action-btn.add-to-cart').forEach(btn => {
-                btn.addEventListener('click', e => {
-                    e.stopPropagation();
-                    const card = btn.closest('.card');
-                    const title = card.querySelector('.card-title')?.textContent.trim();
-                    const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
-                    const price = card.querySelector('.card-price')?.textContent.trim() || '';
-                    fetch('/cart/add', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
-                    }).then(r => r.json()).then(() => {
-                        // item added silently
+                    // Newsletter form (demo)
+                    const newsletterForm = document.querySelector(".newsletter-form");
+                    newsletterForm?.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        alert("Thank you for subscribing!");
                     });
-                });
-            });
 
-            // Load more products logic: show 4 more cards per click
-            (function () {
-                const grid = document.querySelector('.grid.products');
-                if (!grid) return;
-                const cards = Array.from(grid.querySelectorAll('.card'));
-                let shown = 12;
-                cards.forEach((c, i) => { if (i >= shown) c.classList.add('hidden-item'); });
-                const btn = document.getElementById('loadMore');
-                if (!btn) return;
-                btn.addEventListener('click', () => {
-                    const hidden = cards.filter(c => c.classList.contains('hidden-item'));
-                    const toShow = hidden.slice(0, 4);
-                    toShow.forEach(c => c.classList.remove('hidden-item'));
-                    if (hidden.length <= 4) btn.style.display = 'none';
+                    // Sticky header shadow
+                    const header = document.querySelector("header");
+                    const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
+                    const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
+                    function updateHeaderShadow() {
+                        if (!header) return;
+                        header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
+                    }
+                    updateHeaderShadow();
+                    window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+
+                    // Search and Cart actions (demo)
+                    document
+                        .querySelector('.search-form')
+                        ?.addEventListener("submit", (e) => {
+                            e.preventDefault();
+                            const query = e.target.querySelector('input').value.trim();
+                            if (query) {
+                                alert(`Searching for: "${query}" - functionality coming soon!`);
+                            } else {
+                                alert("Please enter a search term.");
+                            }
+                        });
+
+                    document
+                        .querySelector('.header-actions button[title="Cart"]')
+                        ?.addEventListener("click", () => {
+                            location.href = '/cart';
+                        });
+
+                    document
+                        .querySelector('.header-actions button[title="Wishlist"]')
+                        ?.addEventListener("click", () => {
+                            location.href = '/wishlist';
+                        });
+
+                    // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
+                    const accountBtn = document.getElementById("accountBtn");
+                    const accountMenu = document.getElementById("accountMenu");
+
+                    function openMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        accountMenu.classList.add("open");
+                        accountBtn.setAttribute("aria-expanded", "true");
+                        const firstItem = accountMenu.querySelector(".dropdown-item");
+                        firstItem?.focus();
+                    }
+
+                    function closeMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        accountMenu.classList.remove("open");
+                        accountBtn.setAttribute("aria-expanded", "false");
+                    }
+
+                    function toggleMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        const isOpen = accountMenu.classList.contains("open");
+                        isOpen ? closeMenu() : openMenu();
+                    }
+
+                    accountBtn?.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        toggleMenu();
+                    });
+
+                    // Close on outside click
+                    document.addEventListener("click", (e) => {
+                        if (!accountMenu || !accountBtn) return;
+                        const target = e.target;
+                        const clickInsideMenu = accountMenu.contains(target);
+                        const clickOnBtn = accountBtn.contains(target);
+                        if (!clickInsideMenu && !clickOnBtn) {
+                            closeMenu();
+                        }
+                    });
+
+                    // Close menu when clicking any menu item
+                    accountMenu?.addEventListener("click", (e) => {
+                        const a = e.target.closest("a.dropdown-item");
+                        if (a) {
+                            // Allow navigation; just close the menu visually
+                            closeMenu();
+                        }
+                    });
+
+                    // Keyboard handling: Escape to close, Tab to cycle within menu
+                    document.addEventListener("keydown", (e) => {
+                        if (!accountMenu || !accountBtn) return;
+
+                        if (e.key === "Escape" && accountMenu.classList.contains("open")) {
+                            e.preventDefault();
+                            closeMenu();
+                            accountBtn.focus();
+                            return;
+                        }
+
+                        if (e.key === "Tab" && accountMenu.classList.contains("open")) {
+                            const focusables = Array.from(
+                                accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
+                            );
+                            if (focusables.length === 0) return;
+
+                            const currentIndex = focusables.indexOf(document.activeElement);
+                            let nextIndex = currentIndex;
+
+                            if (e.shiftKey) {
+                                nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
+                            } else {
+                                nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
+                            }
+
+                            // If focus is not inside menu yet, start at first/last based on tab direction
+                            if (currentIndex === -1) {
+                                nextIndex = e.shiftKey ? focusables.length - 1 : 0;
+                            }
+
+                            e.preventDefault();
+                            focusables[nextIndex].focus();
+                        }
+                    });
+
+                    // attach behavior to existing wishlist buttons on each card
+                    (function () {
+                        document.querySelectorAll('.card-actions [title="Add to Wishlist"]').forEach(btn => {
+                            btn.addEventListener('click', e => {
+                                e.stopPropagation();
+                                const card = btn.closest('.card');
+                                const title = card.querySelector('.card-title')?.textContent.trim();
+                                const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+                                const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                                fetch('/wishlist/add', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                    body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                                }).then(r => r.json()).then(data => {
+                                    if (typeof updateWishlistBadge === 'function') {
+                                        updateWishlistBadge(data.count);
+                                    }
+                                });
+                            });
+                        });
+                    })();
+
+                    // attach add-to-cart behavior to buttons
+                    document.querySelectorAll('.card-action-btn.add-to-cart').forEach(btn => {
+                        btn.addEventListener('click', e => {
+                            e.stopPropagation();
+                            const card = btn.closest('.card');
+                            const title = card.querySelector('.card-title')?.textContent.trim();
+                            const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+                            const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                            fetch('/cart/add', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                            }).then(r => r.json()).then(() => {
+                                // item added silently
+                            });
+                        });
+                    });
+
+                    // Load more products logic: show 4 more cards per click
+                    (function () {
+                        const grid = document.querySelector('.grid.products');
+                        if (!grid) return;
+                        const cards = Array.from(grid.querySelectorAll('.card'));
+                        let shown = 12;
+                        cards.forEach((c, i) => { if (i >= shown) c.classList.add('hidden-item'); });
+                        const btn = document.getElementById('loadMore');
+                        if (!btn) return;
+                        btn.addEventListener('click', () => {
+                            const hidden = cards.filter(c => c.classList.contains('hidden-item'));
+                            const toShow = hidden.slice(0, 4);
+                            toShow.forEach(c => c.classList.remove('hidden-item'));
+                            if (hidden.length <= 4) btn.style.display = 'none';
+                        });
+                    })();
                 });
-            })();
-        });
-    </script>
+            </script>
 </body>
 
 </html>
