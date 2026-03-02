@@ -884,240 +884,282 @@
 <body>
     <%- include('partials/header.ejs') %>
 
-    <main>
-        <section class="hero-section"
-            style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%); padding: 80px 0; border-radius: 0 0 48px 48px; position: relative; overflow: hidden; margin-top: 0; margin-bottom: 60px;">
-            <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.2); top: 0;">
-            </div>
-            <div class="container"
-                style="position: relative; z-index: 1; text-align: center; width: 100%; max-width: 1200px; margin: 0 auto;">
-                <div style="margin-bottom: 40px;">
-                    <h1
-                        style="font-size: 70px; font-family: 'Poppins', Arial, sans-serif; font-weight: 900; color: #d4af37; margin: 0 0 24px 0; line-height: 1.1; letter-spacing: 3px; text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);">
-                        Your Wishlist
-                    </h1>
-                    <p
-                        style="font-size: 18px; color: #cbd5e1; margin: 0 0 40px 0; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-                        Your curated collection of favorite items. Add them to cart or share with friends.
-                    </p>
+        <main>
+            <section class="hero-section"
+                style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%); padding: 80px 0; border-radius: 0 0 48px 48px; position: relative; overflow: hidden; margin-top: 0; margin-bottom: 60px;">
+                <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.2); top: 0;">
                 </div>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
-                    <button class="btn-gold" style="padding: 14px 50px; font-size: 20px;">Browse Products</button>
+                <div class="container"
+                    style="position: relative; z-index: 1; text-align: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+                    <div style="margin-bottom: 40px;">
+                        <h1
+                            style="font-size: 70px; font-family: 'Poppins', Arial, sans-serif; font-weight: 900; color: #d4af37; margin: 0 0 24px 0; line-height: 1.1; letter-spacing: 3px; text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);">
+                            Your Wishlist
+                        </h1>
+                        <p
+                            style="font-size: 18px; color: #cbd5e1; margin: 0 0 40px 0; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                            Your curated collection of favorite items. Add them to cart or share with friends.
+                        </p>
+                    </div>
+                    <div
+                        style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+                        <button class="btn-gold" style="padding: 14px 50px; font-size: 20px;"
+                            onclick="location.href='/products'">Browse Products</button>
+                    </div>
+                    <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">❤️</div>
+                            <div style="font-size: 14px; color: #cbd5e1;">Favorites Saved</div>
+                        </div>
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">👥</div>
+                            <div style="font-size: 14px; color: #cbd5e1;">Share with Friends</div>
+                        </div>
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">🎁</div>
+                            <div style="font-size: 14px; color: #cbd5e1;">Perfect Gifts</div>
+                        </div>
+                    </div>
                 </div>
-                <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">❤️</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Favorites Saved</div>
-                    </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">👥</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Share with Friends</div>
-                    </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">🎁</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Perfect Gifts</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-title">Wishlist Items</div>
-                <div class="section-desc">Items you've saved</div>
-                <div style="max-width:800px; margin:0 auto;">
-                    <% const items=wishlist || [] %>
-                        <% if (items.length===0) { %>
-                            <p style="text-align:center; color:#4a5568; font-size:18px;">Your wishlist is empty.</p>
-                            <% } else { %>
-                                <% items.forEach(function(item){ %>
-                                    <div class="card" style="margin-bottom:20px;" data-title="<%= item.title %>">
-                                        <div class="card-body">
-                                            <div class="card-title">
-                                                <%= item.title %>
-                                            </div>
-                                            <div class="card-desc">
-                                                <%= item.desc %>
-                                            </div>
-                                            <div class="card-price">
-                                                <%= item.price %>
+            <section class="section">
+                <div class="container">
+                    <div class="section-title">Wishlist Items</div>
+                    <div class="section-desc">Items you've saved</div>
+                    <div style="max-width:800px; margin:0 auto;">
+                        <% const items=wishlist || [] %>
+                            <% if (items.length===0) { %>
+                                <p style="text-align:center; color:#4a5568; font-size:18px;">Your wishlist is empty.</p>
+                                <% } else { %>
+                                    <% items.forEach(function(item){ %>
+                                        <div class="card" style="margin-bottom:20px;" data-title="<%= item.title %>">
+                                            <div class="card-body">
+                                                <div class="card-title">
+                                                    <%= item.title %>
+                                                </div>
+                                                <div class="card-desc">
+                                                    <%= item.desc %>
+                                                </div>
+                                                <div class="card-price">
+                                                    <%= item.price %>
+                                                </div>
+                                                <div class="card-actions" style="margin-top:12px; gap:8px;">
+                                                    <button class="card-action-btn wishlist-addcart-btn"
+                                                        title="Move to Cart">Add to Cart</button>
+                                                    <button class="card-action-btn wishlist-remove-btn"
+                                                        title="Remove from Wishlist"
+                                                        style="border-color:#e53e3e;color:#e53e3e;">Remove</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <% }); %>
-                                        <% } %>
+                                        <% }); %>
+                                            <% } %>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <%- include('partials/footer.ejs') %>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Nav active state and keyboard support
-            const navButtons = document.querySelectorAll("nav button");
-            navButtons.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    navButtons.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
-                });
-                btn.addEventListener("keydown", (e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        btn.click();
-                    }
-                });
-            });
-
-            // Newsletter form (demo)
-            const newsletterForm = document.querySelector(".newsletter-form");
-            newsletterForm?.addEventListener("submit", (e) => {
-                e.preventDefault();
-                alert("Thank you for subscribing!");
-            });
-
-            // Sticky header shadow
-            const header = document.querySelector("header");
-            const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
-            const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
-            function updateHeaderShadow() {
-                if (!header) return;
-                header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
-            }
-            updateHeaderShadow();
-            window.addEventListener("scroll", updateHeaderShadow, { passive: true });
-
-            // Search and Cart actions (demo)
-            document
-                .querySelector('.search-form')
-                ?.addEventListener("submit", (e) => {
-                    e.preventDefault();
-                    const query = e.target.querySelector('input').value.trim();
-                    if (query) {
-                        alert(`Searching for: "${query}" - functionality coming soon!`);
-                    } else {
-                        alert("Please enter a search term.");
-                    }
-                });
-
-            document
-                .querySelector('.header-actions button[title="Cart"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/cart';
-                });
-
-            document
-                .querySelector('.header-actions button[title="Wishlist"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/wishlist';
-                });
-
-            // allow clicking a wishlist card to remove it from list
-            document.querySelectorAll('.card[data-title]').forEach(card => {
-                card.addEventListener('click', () => {
-                    const title = card.getAttribute('data-title');
-                    fetch('/wishlist/remove', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: `title=${encodeURIComponent(title)}`
-                    }).then(r => r.json()).then(() => {
-                        card.remove();
-                        if (document.querySelectorAll('.card[data-title]').length === 0) {
-                            const container = document.querySelector('section .container > div[style*="max-width:800px"]');
-                            if (container) {
-                                container.innerHTML = '<p style="text-align:center; color:#4a5568; font-size:18px;">Your wishlist is empty.</p>';
+        <%- include('partials/footer.ejs') %>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    // Nav active state and keyboard support
+                    const navButtons = document.querySelectorAll("nav button");
+                    navButtons.forEach((btn) => {
+                        btn.addEventListener("click", () => {
+                            navButtons.forEach((b) => b.classList.remove("active"));
+                            btn.classList.add("active");
+                        });
+                        btn.addEventListener("keydown", (e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                btn.click();
                             }
+                        });
+                    });
+
+                    // Newsletter form (demo)
+                    const newsletterForm = document.querySelector(".newsletter-form");
+                    newsletterForm?.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        alert("Thank you for subscribing!");
+                    });
+
+                    // Sticky header shadow
+                    const header = document.querySelector("header");
+                    const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
+                    const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
+                    function updateHeaderShadow() {
+                        if (!header) return;
+                        header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
+                    }
+                    updateHeaderShadow();
+                    window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+
+                    // Search and Cart actions (demo)
+                    document
+                        .querySelector('.search-form')
+                        ?.addEventListener("submit", (e) => {
+                            e.preventDefault();
+                            const query = e.target.querySelector('input').value.trim();
+                            if (query) {
+                                alert(`Searching for: "${query}" - functionality coming soon!`);
+                            } else {
+                                alert("Please enter a search term.");
+                            }
+                        });
+
+                    document
+                        .querySelector('.header-actions button[title="Cart"]')
+                        ?.addEventListener("click", () => {
+                            location.href = '/cart';
+                        });
+
+                    document
+                        .querySelector('.header-actions button[title="Wishlist"]')
+                        ?.addEventListener("click", () => {
+                            location.href = '/wishlist';
+                        });
+
+                    // wishlist item controls
+                    document.querySelectorAll('.wishlist-remove-btn').forEach(btn => {
+                        btn.addEventListener('click', e => {
+                            e.stopPropagation();
+                            const card = btn.closest('.card');
+                            const title = card.getAttribute('data-title');
+                            fetch('/wishlist/remove', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: `title=${encodeURIComponent(title)}`
+                            }).then(r => r.json()).then(() => {
+                                card.remove();
+                                if (document.querySelectorAll('.card[data-title]').length === 0) {
+                                    const container = document.querySelector('section .container > div[style*="max-width:800px"]');
+                                    if (container) {
+                                        container.innerHTML = '<p style="text-align:center; color:#4a5568; font-size:18px;">Your wishlist is empty.</p>';
+                                    }
+                                }
+                            });
+                        });
+                    });
+
+                    document.querySelectorAll('.wishlist-addcart-btn').forEach(btn => {
+                        btn.addEventListener('click', e => {
+                            e.stopPropagation();
+                            const card = btn.closest('.card');
+                            const title = card.getAttribute('data-title');
+                            const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+                            const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                            // add to cart first
+                            fetch('/cart/add', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                            }).then(r => r.json()).then(() => {
+                                // then remove from wishlist
+                                fetch('/wishlist/remove', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                    body: `title=${encodeURIComponent(title)}`
+                                }).then(r => r.json()).then(() => {
+                                    card.remove();
+                                    if (document.querySelectorAll('.card[data-title]').length === 0) {
+                                        const container = document.querySelector('section .container > div[style*="max-width:800px"]');
+                                        if (container) {
+                                            container.innerHTML = '<p style="text-align:center; color:#4a5568; font-size:18px;">Your wishlist is empty.</p>';
+                                        }
+                                    }
+                                });
+                            });
+                        });
+                    });
+
+                    // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
+                    const accountBtn = document.getElementById("accountBtn");
+                    const accountMenu = document.getElementById("accountMenu");
+
+                    function openMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        accountMenu.classList.add("open");
+                        accountBtn.setAttribute("aria-expanded", "true");
+                        const firstItem = accountMenu.querySelector(".dropdown-item");
+                        firstItem?.focus();
+                    }
+
+                    function closeMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        accountMenu.classList.remove("open");
+                        accountBtn.setAttribute("aria-expanded", "false");
+                    }
+
+                    function toggleMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        const isOpen = accountMenu.classList.contains("open");
+                        isOpen ? closeMenu() : openMenu();
+                    }
+
+                    accountBtn?.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        toggleMenu();
+                    });
+
+                    // Close on outside click
+                    document.addEventListener("click", (e) => {
+                        if (!accountMenu || !accountBtn) return;
+                        const target = e.target;
+                        const clickInsideMenu = accountMenu.contains(target);
+                        const clickOnBtn = accountBtn.contains(target);
+                        if (!clickInsideMenu && !clickOnBtn) {
+                            closeMenu();
+                        }
+                    });
+
+                    // Close menu when clicking any menu item
+                    accountMenu?.addEventListener("click", (e) => {
+                        const a = e.target.closest("a.dropdown-item");
+                        if (a) {
+                            // Allow navigation; just close the menu visually
+                            closeMenu();
+                        }
+                    });
+
+                    // Keyboard handling: Escape to close, Tab to cycle within menu
+                    document.addEventListener("keydown", (e) => {
+                        if (!accountMenu || !accountBtn) return;
+
+                        if (e.key === "Escape" && accountMenu.classList.contains("open")) {
+                            e.preventDefault();
+                            closeMenu();
+                            accountBtn.focus();
+                            return;
+                        }
+
+                        if (e.key === "Tab" && accountMenu.classList.contains("open")) {
+                            const focusables = Array.from(
+                                accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
+                            );
+                            if (focusables.length === 0) return;
+
+                            const currentIndex = focusables.indexOf(document.activeElement);
+                            let nextIndex = currentIndex;
+
+                            if (e.shiftKey) {
+                                nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
+                            } else {
+                                nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
+                            }
+
+                            // If focus is not inside menu yet, start at first/last based on tab direction
+                            if (currentIndex === -1) {
+                                nextIndex = e.shiftKey ? focusables.length - 1 : 0;
+                            }
+
+                            e.preventDefault();
+                            focusables[nextIndex].focus();
                         }
                     });
                 });
-            });
-
-            // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
-            const accountBtn = document.getElementById("accountBtn");
-            const accountMenu = document.getElementById("accountMenu");
-
-            function openMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.add("open");
-                accountBtn.setAttribute("aria-expanded", "true");
-                const firstItem = accountMenu.querySelector(".dropdown-item");
-                firstItem?.focus();
-            }
-
-            function closeMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.remove("open");
-                accountBtn.setAttribute("aria-expanded", "false");
-            }
-
-            function toggleMenu() {
-                if (!accountMenu || !accountBtn) return;
-                const isOpen = accountMenu.classList.contains("open");
-                isOpen ? closeMenu() : openMenu();
-            }
-
-            accountBtn?.addEventListener("click", (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-
-            // Close on outside click
-            document.addEventListener("click", (e) => {
-                if (!accountMenu || !accountBtn) return;
-                const target = e.target;
-                const clickInsideMenu = accountMenu.contains(target);
-                const clickOnBtn = accountBtn.contains(target);
-                if (!clickInsideMenu && !clickOnBtn) {
-                    closeMenu();
-                }
-            });
-
-            // Close menu when clicking any menu item
-            accountMenu?.addEventListener("click", (e) => {
-                const a = e.target.closest("a.dropdown-item");
-                if (a) {
-                    // Allow navigation; just close the menu visually
-                    closeMenu();
-                }
-            });
-
-            // Keyboard handling: Escape to close, Tab to cycle within menu
-            document.addEventListener("keydown", (e) => {
-                if (!accountMenu || !accountBtn) return;
-
-                if (e.key === "Escape" && accountMenu.classList.contains("open")) {
-                    e.preventDefault();
-                    closeMenu();
-                    accountBtn.focus();
-                    return;
-                }
-
-                if (e.key === "Tab" && accountMenu.classList.contains("open")) {
-                    const focusables = Array.from(
-                        accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
-                    );
-                    if (focusables.length === 0) return;
-
-                    const currentIndex = focusables.indexOf(document.activeElement);
-                    let nextIndex = currentIndex;
-
-                    if (e.shiftKey) {
-                        nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
-                    } else {
-                        nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
-                    }
-
-                    // If focus is not inside menu yet, start at first/last based on tab direction
-                    if (currentIndex === -1) {
-                        nextIndex = e.shiftKey ? focusables.length - 1 : 0;
-                    }
-
-                    e.preventDefault();
-                    focusables[nextIndex].focus();
-                }
-            });
-        });
-    </script>
+            </script>
 </body>
 
 </html>
