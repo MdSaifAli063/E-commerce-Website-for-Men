@@ -181,6 +181,31 @@
         filter: brightness(1.05);
     }
 
+    /* wishlist icon badge */
+    .wishlist-btn {
+        position: relative;
+    }
+
+    .wishlist-badge {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background: #e53e3e;
+        color: #fff;
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .wishlist-badge.hidden {
+        display: none;
+    }
+
     .account-label {
         font-size: 14px;
         font-weight: 700;
@@ -297,6 +322,16 @@
         color: #fff;
         box-shadow: 0 4px 16px #d4af37;
         transform: scale(1.07);
+    }
+
+    .btn-danger {
+        background: #e53e3e;
+        color: #fff;
+    }
+
+    .btn-danger:hover {
+        background: #c53030;
+        transform: scale(1.05);
     }
 
     main {
