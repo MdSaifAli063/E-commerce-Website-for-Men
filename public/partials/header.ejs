@@ -41,6 +41,10 @@
                         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
                     </path>
                 </svg>
+                <span id="wishlist-count"
+                    class="wishlist-badge <%= wishlistCount && wishlistCount > 0 ? '' : 'hidden' %>">
+                    <%= wishlistCount || '' %>
+                </span>
             </button>
 
             <!-- Cart -->
@@ -139,3 +143,13 @@
         </div>
     </div>
 </header>
+<script>
+    // helper exposed to all pages so client scripts can update header badge when they change the wishlist
+    function updateWishlistBadge(count) {
+        const span = document.getElementById('wishlist-count');
+        if (!span) return;
+        span.textContent = count > 0 ? count : '';
+        if (count > 0) span.classList.remove('hidden');
+        else span.classList.add('hidden');
+    }
+</script>
