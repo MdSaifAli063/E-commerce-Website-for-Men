@@ -113,7 +113,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Expose current page to all templates
+// Expose current page and wishlist count to all templates
 app.use((req, res, next) => {
   const path = req.path;
   let currentPage = "home"; // default
@@ -127,6 +127,10 @@ app.use((req, res, next) => {
   else if (path === "/cart") currentPage = "cart";
   else if (path === "/wishlist") currentPage = "wishlist";
   res.locals.currentPage = currentPage;
+
+  // compute wishlist length; works even if user is not logged in but we still have session
+  res.locals.wishlistCount = (req.session.wishlist || []).length;
+
   next();
 });
 
