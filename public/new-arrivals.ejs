@@ -999,44 +999,46 @@
         </section>
     </main>
     <%- include('partials/footer.ejs') %>
-    <script>
-        // attach wishlist behavior to buttons on this page
-        document.querySelectorAll('.card-action-btn[title="Add to Wishlist"]').forEach(btn => {
-            btn.addEventListener('click', e => {
-                e.preventDefault();
-                e.stopPropagation();
-                const card = btn.closest('.card');
-                const title = card.querySelector('.card-title')?.textContent.trim();
-                const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
-                const price = card.querySelector('.card-price')?.textContent.trim() || '';
-                fetch('/wishlist/add', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
-                }).then(r => r.json()).then(() => {
-                    
+        <script>
+            // attach wishlist behavior to buttons on this page
+            document.querySelectorAll('.card-action-btn[title="Add to Wishlist"]').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = btn.closest('.card');
+                    const title = card.querySelector('.card-title')?.textContent.trim();
+                    const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+                    const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                    fetch('/wishlist/add', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                    }).then(r => r.json()).then(data => {
+                        if (typeof updateWishlistBadge === 'function') {
+                            updateWishlistBadge(data.count);
+                        }
+                    });
                 });
             });
-        });
 
-        // attach cart behavior to buttons on this page
-        document.querySelectorAll('.card-action-btn.add-to-cart').forEach(btn => {
-            btn.addEventListener('click', e => {
-                e.preventDefault();
-                e.stopPropagation();
-                const card = btn.closest('.card');
-                const title = card.querySelector('.card-title')?.textContent.trim();
-                const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
-                const price = card.querySelector('.card-price')?.textContent.trim() || '';
-                fetch('/cart/add', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+            // attach cart behavior to buttons on this page
+            document.querySelectorAll('.card-action-btn.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = btn.closest('.card');
+                    const title = card.querySelector('.card-title')?.textContent.trim();
+                    const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
+                    const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                    fetch('/cart/add', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                    });
                 });
             });
-        });
             });
         });
-    </script>
+        </script>
 
 </html>
