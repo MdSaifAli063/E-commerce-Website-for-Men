@@ -1000,6 +1000,25 @@
     </main>
     <%- include('partials/footer.ejs') %>
         <script>
+            function extractCardPrice(rawPrice) {
+                const text = String(rawPrice || '').trim();
+                const currencyMatches = text.match(/₹\s*\d{1,3}(?:,\d{3})*(?:\.\d+)?/g);
+                let target = '';
+                if (currencyMatches && currencyMatches.length > 0) {
+                    target = currencyMatches[currencyMatches.length - 1];
+                } else {
+                    const numericMatches = text.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g) || [];
+                    if (numericMatches.length === 0) return 0;
+                    if (text.includes('%') && numericMatches.length > 1) {
+                        target = numericMatches[numericMatches.length - 2];
+                    } else {
+                        target = numericMatches[numericMatches.length - 1];
+                    }
+                }
+                const cleaned = String(target).replace(/[^0-9.]/g, '').replace(/,/g, '');
+                return Number(cleaned) || 0;
+            }
+
             // attach wishlist behavior to buttons on this page
             document.querySelectorAll('.card-action-btn[title="Add to Wishlist"]').forEach(btn => {
                 btn.addEventListener('click', e => {
@@ -1008,7 +1027,7 @@
                     const card = btn.closest('.card');
                     const title = card.querySelector('.card-title')?.textContent.trim();
                     const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
-                    const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                    const price = extractCardPrice(card.querySelector('.card-price')?.textContent || '');
                     const image = card.querySelector('.card-img')?.getAttribute('src') || '';
                     fetch('/wishlist/add', {
                         method: 'POST',
@@ -1030,7 +1049,8 @@
                     const card = btn.closest('.card');
                     const title = card.querySelector('.card-title')?.textContent.trim();
                     const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
-                    const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                    const price = extractCardPrice(card.querySelector('.card-price')?.textContent || '');
+                    console.debug('[new-arrivals] add-to-cart', { title, price });
                     fetch('/cart/add', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
