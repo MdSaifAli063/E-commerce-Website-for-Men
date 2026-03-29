@@ -667,11 +667,11 @@ app.post(
   requireAuth,
   express.urlencoded({ extended: false }),
   (req, res) => {
-    const { title, desc, price } = req.body;
+    const { title, desc, price, image } = req.body;
     if (!req.session.wishlist) req.session.wishlist = [];
     // avoid duplicates based on title
     if (title && !req.session.wishlist.find((i) => i.title === title)) {
-      req.session.wishlist.push({ title, desc, price });
+      req.session.wishlist.push({ title, desc, price, image });
     }
     res.json({ success: true, count: req.session.wishlist.length });
   },
@@ -701,13 +701,14 @@ app.post(
   requireAuth,
   express.urlencoded({ extended: false }),
   (req, res) => {
-    const { title, desc, price } = req.body;
+    const { title, desc, price, image } = req.body;
     if (!req.session.cart) req.session.cart = [];
     const existing = req.session.cart.find((i) => i.title === title);
     if (existing) {
       existing.quantity = (existing.quantity || 1) + 1;
+      if (image) existing.image = image;
     } else if (title) {
-      req.session.cart.push({ title, desc, price, quantity: 1 });
+      req.session.cart.push({ title, desc, price, image, quantity: 1 });
     }
     const count = req.session.cart.reduce((a, i) => a + (i.quantity || 0), 0);
     res.json({ success: true, count });
