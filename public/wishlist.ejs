@@ -1246,7 +1246,9 @@
                             const card = btn.closest('.card');
                             const title = card.getAttribute('data-title');
                             const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
-                            const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                            const rawPrice = card.querySelector('.card-price')?.textContent.trim() || '';
+                            const priceMatches = rawPrice.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g) || [];
+                            const price = priceMatches.length ? priceMatches[priceMatches.length - 1].replace(/,/g, '') : rawPrice;
                             const image = card.querySelector('.card-img')?.getAttribute('src') || '';
                             // add to cart first
                             fetch('/cart/add', {
