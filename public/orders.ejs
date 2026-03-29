@@ -878,205 +878,230 @@
 <body>
     <%- include('partials/header.ejs') %>
 
-    <main>
-        <section class="hero-section"
-            style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%); padding: 80px 0; border-radius: 0 0 48px 48px; position: relative; overflow: hidden; margin-top: 0; margin-bottom: 60px;">
-            <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.2); top: 0;">
-            </div>
-            <div class="container"
-                style="position: relative; z-index: 1; text-align: center; width: 100%; max-width: 1200px; margin: 0 auto;">
-                <div style="margin-bottom: 40px;">
-                    <h1
-                        style="font-size: 70px; font-family: 'Poppins', Arial, sans-serif; font-weight: 900; color: #d4af37; margin: 0 0 24px 0; line-height: 1.1; letter-spacing: 3px; text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);">
-                        Your Orders
-                    </h1>
-                    <p
-                        style="font-size: 18px; color: #cbd5e1; margin: 0 0 40px 0; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-                        Track your purchases, view order details, and manage returns or exchanges.
-                    </p>
+        <main>
+            <section class="hero-section"
+                style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%); padding: 80px 0; border-radius: 0 0 48px 48px; position: relative; overflow: hidden; margin-top: 0; margin-bottom: 60px;">
+                <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.2); top: 0;">
                 </div>
-                <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">📦</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Track Packages</div>
+                <div class="container"
+                    style="position: relative; z-index: 1; text-align: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+                    <div style="margin-bottom: 40px;">
+                        <h1
+                            style="font-size: 70px; font-family: 'Poppins', Arial, sans-serif; font-weight: 900; color: #d4af37; margin: 0 0 24px 0; line-height: 1.1; letter-spacing: 3px; text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);">
+                            Your Orders
+                        </h1>
+                        <p
+                            style="font-size: 18px; color: #cbd5e1; margin: 0 0 40px 0; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                            Track your purchases, view order details, and manage returns or exchanges.
+                        </p>
                     </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">📋</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Order History</div>
-                    </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">↩️</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Returns & Support</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-title">Order History</div>
-                <div class="section-desc">Your recent orders</div>
-                <div style="max-width:800px; margin:0 auto;">
-                    <div class="card" style="margin-bottom:20px;">
-                        <div class="card-body">
-                            <div class="card-title">Order #12345</div>
-                            <div class="card-desc">Royal Silk Sharwani - Delivered</div>
-                            <div class="card-price">$499.99</div>
+                    <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">📦</div>
+                            <div style="font-size: 14px; color: #cbd5e1;">Track Packages</div>
+                        </div>
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">📋</div>
+                            <div style="font-size: 14px; color: #cbd5e1;">Order History</div>
+                        </div>
+                        <div style="color: #fff; text-align: center;">
+                            <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">↩️</div>
+                            <div style="font-size: 14px; color: #cbd5e1;">Returns & Support</div>
                         </div>
                     </div>
-                    <!-- Add more order cards as needed -->
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <%- include('partials/footer.ejs') %>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Nav active state and keyboard support
-            const navButtons = document.querySelectorAll("nav button");
-            navButtons.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    navButtons.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
-                });
-                btn.addEventListener("keydown", (e) => {
-                    if (e.key === "Enter" || e.key === " ") {
+            <section class="section">
+                <div class="container">
+                    <div class="section-title">Order History</div>
+                    <div class="section-desc">Your recent orders</div>
+                    <div style="max-width:800px; margin:0 auto;">
+                        <% const ordersList=(typeof orders !=='undefined' ? orders : []) || []; %>
+                            <% if (ordersList.length===0) { %>
+                                <p style="text-align:center; color:#4a5568; font-size:18px;">No orders yet. Complete
+                                    checkout to see your history.</p>
+                                <% } else { %>
+                                    <% ordersList.forEach((order)=> { %>
+                                        <div class="card" style="margin-bottom:20px;">
+                                            <div class="card-body">
+                                                <div class="card-title">Order <%= order.id %>
+                                                </div>
+                                                <div class="card-desc" style="font-size:14px; margin-bottom:8px;">Placed
+                                                    on <%= new Date(order.createdAt).toLocaleString() %> • Status:
+                                                        <strong>
+                                                            <%= order.status %>
+                                                        </strong></div>
+                                                <% order.items.forEach((item)=> { %>
+                                                    <div
+                                                        style="display:flex; justify-content:space-between; margin-bottom:4px; font-size:14px;">
+                                                        <span>
+                                                            <%= item.title %> x <%= item.quantity || 1 %>
+                                                        </span>
+                                                        <span>₹<%= Number(String(item.price || 0).replace(/[^0-9.]/g, ''
+                                                                )).toFixed(2) %></span>
+                                                    </div>
+                                                    <% }) %>
+                                                        <div class="card-price"
+                                                            style="font-size:18px; color:#d4af37; font-weight:700; margin-top:10px;">
+                                                            Total: ₹<%= Number(order.total).toFixed(2) %>
+                                                        </div>
+                                            </div>
+                                        </div>
+                                        <% }); %>
+                                            <% } %>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <%- include('partials/footer.ejs') %>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    // Nav active state and keyboard support
+                    const navButtons = document.querySelectorAll("nav button");
+                    navButtons.forEach((btn) => {
+                        btn.addEventListener("click", () => {
+                            navButtons.forEach((b) => b.classList.remove("active"));
+                            btn.classList.add("active");
+                        });
+                        btn.addEventListener("keydown", (e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                btn.click();
+                            }
+                        });
+                    });
+
+                    // Newsletter form (demo)
+                    const newsletterForm = document.querySelector(".newsletter-form");
+                    newsletterForm?.addEventListener("submit", (e) => {
                         e.preventDefault();
-                        btn.click();
+                        alert("Thank you for subscribing!");
+                    });
+
+                    // Sticky header shadow
+                    const header = document.querySelector("header");
+                    const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
+                    const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
+                    function updateHeaderShadow() {
+                        if (!header) return;
+                        header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
                     }
-                });
-            });
+                    updateHeaderShadow();
+                    window.addEventListener("scroll", updateHeaderShadow, { passive: true });
 
-            // Newsletter form (demo)
-            const newsletterForm = document.querySelector(".newsletter-form");
-            newsletterForm?.addEventListener("submit", (e) => {
-                e.preventDefault();
-                alert("Thank you for subscribing!");
-            });
+                    // Search and Cart actions (demo)
+                    document
+                        .querySelector('.search-form')
+                        ?.addEventListener("submit", (e) => {
+                            e.preventDefault();
+                            const query = e.target.querySelector('input').value.trim();
+                            if (query) {
+                                alert(`Searching for: "${query}" - functionality coming soon!`);
+                            } else {
+                                alert("Please enter a search term.");
+                            }
+                        });
 
-            // Sticky header shadow
-            const header = document.querySelector("header");
-            const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
-            const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
-            function updateHeaderShadow() {
-                if (!header) return;
-                header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
-            }
-            updateHeaderShadow();
-            window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+                    document
+                        .querySelector('.header-actions button[title="Cart"]')
+                        ?.addEventListener("click", () => {
+                            location.href = '/cart';
+                        });
 
-            // Search and Cart actions (demo)
-            document
-                .querySelector('.search-form')
-                ?.addEventListener("submit", (e) => {
-                    e.preventDefault();
-                    const query = e.target.querySelector('input').value.trim();
-                    if (query) {
-                        alert(`Searching for: "${query}" - functionality coming soon!`);
-                    } else {
-                        alert("Please enter a search term.");
-                    }
-                });
+                    document
+                        .querySelector('.header-actions button[title="Wishlist"]')
+                        ?.addEventListener("click", () => {
+                            location.href = '/wishlist';
+                        });
 
-            document
-                .querySelector('.header-actions button[title="Cart"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/cart';
-                });
+                    // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
+                    const accountBtn = document.getElementById("accountBtn");
+                    const accountMenu = document.getElementById("accountMenu");
 
-            document
-                .querySelector('.header-actions button[title="Wishlist"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/wishlist';
-                });
-
-            // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
-            const accountBtn = document.getElementById("accountBtn");
-            const accountMenu = document.getElementById("accountMenu");
-
-            function openMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.add("open");
-                accountBtn.setAttribute("aria-expanded", "true");
-                const firstItem = accountMenu.querySelector(".dropdown-item");
-                firstItem?.focus();
-            }
-
-            function closeMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.remove("open");
-                accountBtn.setAttribute("aria-expanded", "false");
-            }
-
-            function toggleMenu() {
-                if (!accountMenu || !accountBtn) return;
-                const isOpen = accountMenu.classList.contains("open");
-                isOpen ? closeMenu() : openMenu();
-            }
-
-            accountBtn?.addEventListener("click", (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-
-            // Close on outside click
-            document.addEventListener("click", (e) => {
-                if (!accountMenu || !accountBtn) return;
-                const target = e.target;
-                const clickInsideMenu = accountMenu.contains(target);
-                const clickOnBtn = accountBtn.contains(target);
-                if (!clickInsideMenu && !clickOnBtn) {
-                    closeMenu();
-                }
-            });
-
-            // Close menu when clicking any menu item
-            accountMenu?.addEventListener("click", (e) => {
-                const a = e.target.closest("a.dropdown-item");
-                if (a) {
-                    // Allow navigation; just close the menu visually
-                    closeMenu();
-                }
-            });
-
-            // Keyboard handling: Escape to close, Tab to cycle within menu
-            document.addEventListener("keydown", (e) => {
-                if (!accountMenu || !accountBtn) return;
-
-                if (e.key === "Escape" && accountMenu.classList.contains("open")) {
-                    e.preventDefault();
-                    closeMenu();
-                    accountBtn.focus();
-                    return;
-                }
-
-                if (e.key === "Tab" && accountMenu.classList.contains("open")) {
-                    const focusables = Array.from(
-                        accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
-                    );
-                    if (focusables.length === 0) return;
-
-                    const currentIndex = focusables.indexOf(document.activeElement);
-                    let nextIndex = currentIndex;
-
-                    if (e.shiftKey) {
-                        nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
-                    } else {
-                        nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
+                    function openMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        accountMenu.classList.add("open");
+                        accountBtn.setAttribute("aria-expanded", "true");
+                        const firstItem = accountMenu.querySelector(".dropdown-item");
+                        firstItem?.focus();
                     }
 
-                    // If focus is not inside menu yet, start at first/last based on tab direction
-                    if (currentIndex === -1) {
-                        nextIndex = e.shiftKey ? focusables.length - 1 : 0;
+                    function closeMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        accountMenu.classList.remove("open");
+                        accountBtn.setAttribute("aria-expanded", "false");
                     }
 
-                    e.preventDefault();
-                    focusables[nextIndex].focus();
-                }
-            });
-        });
-    </script>
+                    function toggleMenu() {
+                        if (!accountMenu || !accountBtn) return;
+                        const isOpen = accountMenu.classList.contains("open");
+                        isOpen ? closeMenu() : openMenu();
+                    }
+
+                    accountBtn?.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        toggleMenu();
+                    });
+
+                    // Close on outside click
+                    document.addEventListener("click", (e) => {
+                        if (!accountMenu || !accountBtn) return;
+                        const target = e.target;
+                        const clickInsideMenu = accountMenu.contains(target);
+                        const clickOnBtn = accountBtn.contains(target);
+                        if (!clickInsideMenu && !clickOnBtn) {
+                            closeMenu();
+                        }
+                    });
+
+                    // Close menu when clicking any menu item
+                    accountMenu?.addEventListener("click", (e) => {
+                        const a = e.target.closest("a.dropdown-item");
+                        if (a) {
+                            // Allow navigation; just close the menu visually
+                            closeMenu();
+                        }
+                    });
+
+                    // Keyboard handling: Escape to close, Tab to cycle within menu
+                    document.addEventListener("keydown", (e) => {
+                        if (!accountMenu || !accountBtn) return;
+
+                        if (e.key === "Escape" && accountMenu.classList.contains("open")) {
+                            e.preventDefault();
+                            closeMenu();
+                            accountBtn.focus();
+                            return;
+                        }
+
+                        if (e.key === "Tab" && accountMenu.classList.contains("open")) {
+                            const focusables = Array.from(
+                                accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
+                            );
+                            if (focusables.length === 0) return;
+
+                            const currentIndex = focusables.indexOf(document.activeElement);
+                            let nextIndex = currentIndex;
+
+                            if (e.shiftKey) {
+                                nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
+                            } else {
+                                nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
+                            }
+
+                            // If focus is not inside menu yet, start at first/last based on tab direction
+                            if (currentIndex === -1) {
+                                nextIndex = e.shiftKey ? focusables.length - 1 : 0;
+                            }
+
+                            e.preventDefault();
+                            focusables[nextIndex].focus();
+                        }
+                    });
+                });
+            </script>
 </body>
 
 </html>
