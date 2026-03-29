@@ -1306,9 +1306,7 @@
           <div class="slider-container">
             <div class="slider">
               <div class="slide">
-                <img
-                  src="https://images.alphacoders.com/696/thumb-1920-696703.jpg"
-                  alt="Style 1">
+                <img src="https://images.alphacoders.com/696/thumb-1920-696703.jpg" alt="Style 1">
               </div>
               <div class="slide">
                 <img
@@ -1316,13 +1314,10 @@
                   alt="Style 2">
               </div>
               <div class="slide">
-                <img
-                  src="https://images2.alphacoders.com/999/thumb-1920-999227.jpg"
-                  alt="Style 3">
+                <img src="https://images2.alphacoders.com/999/thumb-1920-999227.jpg" alt="Style 3">
               </div>
               <div class="slide">
-                <img
-                  src="https://pub-95ccf2d427eb4955a7de1c41d3fa57dd.r2.dev/blog-g3fashion-com/2019/01/thumb-10.jpg"
+                <img src="https://pub-95ccf2d427eb4955a7de1c41d3fa57dd.r2.dev/blog-g3fashion-com/2019/01/thumb-10.jpg"
                   alt="Style 4">
               </div>
               <div class="slide">
@@ -2212,10 +2207,11 @@
               const title = card.querySelector('.card-title')?.textContent.trim();
               const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
               const price = card.querySelector('.card-price')?.textContent.trim() || '';
+              const image = card.querySelector('.card-img')?.getAttribute('src') || '';
               fetch('/wishlist/add', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}&image=${encodeURIComponent(image)}`
               }).then(r => r.json()).then(data => {
                 if (typeof updateWishlistBadge === 'function') {
                   updateWishlistBadge(data.count);
