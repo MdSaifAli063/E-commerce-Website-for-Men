@@ -226,6 +226,14 @@ function validateSignup({ username, email, password, termsAccepted }) {
   return { errors, fieldErrors, uname, mail };
 }
 
+function parsePrice(value) {
+  const raw = String(value || "").trim();
+  const match = raw.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g);
+  if (!match || match.length === 0) return 0;
+  const normal = match[match.length - 1].replace(/,/g, "");
+  return Number(normal) || 0;
+}
+
 function validateLogin({ email, password }) {
   const errors = [];
   const fieldErrors = {};
@@ -649,8 +657,42 @@ app.get("/profile", requireAuth, (req, res) => {
 });
 
 app.get("/orders", requireAuth, (req, res) => {
-  res.render("orders");
+  res.render("orders", { orders: req.session.orders || [] });
 });
+
+app.post(
+  "/checkout",
+  requireAuth,
+  express.urlencoded({ extended: false }),
+  (req, res) => {
+    const cart = req.session.cart || [];
+    if (!cart || cart.length === 0) {
+      return res.status(400).json({ success: false, message: "Cart is empty" });
+    }
+
+    const total = cart.reduce((sum, item) => {
+      const raw = parsePrice(item.price);
+      const qty = Number(item.quantity || 1) || 1;
+      return sum + raw * qty;
+    }, 0);
+
+    const newOrder = {
+      id: `ORD-${Date.now()}`,
+      createdAt: new Date().toISOString(),
+      items: cart.map((i) => ({ ...i })),
+      total: Number(total.toFixed(2)),
+      status: "Placed",
+    };
+
+    console.log("Checkout created order", newOrder);
+
+    if (!req.session.orders) req.session.orders = [];
+    req.session.orders.push(newOrder);
+    req.session.cart = [];
+
+    res.json({ success: true, order: newOrder });
+  },
+);
 
 app.get("/cart", requireAuth, (req, res) => {
   // pass current cart (empty array if none) to template
@@ -703,15 +745,22 @@ app.post(
   (req, res) => {
     const { title, desc, price, image } = req.body;
     if (!req.session.cart) req.session.cart = [];
+    const p = parsePrice(price);
     const existing = req.session.cart.find((i) => i.title === title);
     if (existing) {
       existing.quantity = (existing.quantity || 1) + 1;
+      existing.price = parsePrice(existing.price || p);
+      existing.desc = desc || existing.desc;
       if (image) existing.image = image;
     } else if (title) {
-      req.session.cart.push({ title, desc, price, image, quantity: 1 });
+      req.session.cart.push({ title, desc, price: p, image, quantity: 1 });
     }
     const count = req.session.cart.reduce((a, i) => a + (i.quantity || 0), 0);
-    res.json({ success: true, count });
+    const total = req.session.cart.reduce(
+      (sum, i) => sum + parsePrice(i.price) * (Number(i.quantity) || 1),
+      0,
+    );
+    res.json({ success: true, count, total: Number(total.toFixed(2)) });
   },
 );
 
@@ -727,7 +776,38 @@ app.post(
     const count = req.session.cart
       ? req.session.cart.reduce((a, i) => a + (i.quantity || 0), 0)
       : 0;
-    res.json({ success: true, count });
+    const total = req.session.cart
+      ? req.session.cart.reduce(
+          (sum, i) => sum + parsePrice(i.price) * (Number(i.quantity) || 1),
+          0,
+        )
+      : 0;
+    res.json({ success: true, count, total: Number(total.toFixed(2)) });
+  },
+);
+
+app.post(
+  "/cart/decrease",
+  requireAuth,
+  express.urlencoded({ extended: false }),
+  (req, res) => {
+    const { title } = req.body;
+    if (!req.session.cart) req.session.cart = [];
+    const index = req.session.cart.findIndex((i) => i.title === title);
+    if (index !== -1) {
+      const existing = req.session.cart[index];
+      if (existing.quantity > 1) {
+        existing.quantity -= 1;
+      } else {
+        req.session.cart.splice(index, 1);
+      }
+    }
+    const count = req.session.cart.reduce((a, i) => a + (i.quantity || 0), 0);
+    const total = req.session.cart.reduce(
+      (sum, i) => sum + parsePrice(i.price) * (Number(i.quantity) || 1),
+      0,
+    );
+    res.json({ success: true, count, total: Number(total.toFixed(2)) });
   },
 );
 
