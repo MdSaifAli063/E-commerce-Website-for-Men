@@ -1009,10 +1009,11 @@
                     const title = card.querySelector('.card-title')?.textContent.trim();
                     const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
                     const price = card.querySelector('.card-price')?.textContent.trim() || '';
+                    const image = card.querySelector('.card-img')?.getAttribute('src') || '';
                     fetch('/wishlist/add', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+                        body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}&image=${encodeURIComponent(image)}`
                     }).then(r => r.json()).then(data => {
                         if (typeof updateWishlistBadge === 'function') {
                             updateWishlistBadge(data.count);
