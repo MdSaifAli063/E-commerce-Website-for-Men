@@ -153,7 +153,8 @@ app.get("/session", (req, res) => {
   res.json({ user: req.session.user || null, sessionID: req.sessionID });
 });
 
-// Static assets served from public at /static
+// Static assets served from public
+app.use("/css", express.static(path.join(__dirname, "..", "public", "css")));
 app.use("/static", express.static(path.join(__dirname, "..", "public")));
 
 // Body normalizer: map common/odd field names to email/password
@@ -228,10 +229,34 @@ function validateSignup({ username, email, password, termsAccepted }) {
 
 function parsePrice(value) {
   const raw = String(value || "").trim();
-  const match = raw.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g);
-  if (!match || match.length === 0) return 0;
-  const normal = match[match.length - 1].replace(/,/g, "");
-  return Number(normal) || 0;
+
+  // Handle explicit INR currency tokens first: prefer last listed price.
+  const currencyMatches = raw.match(/₹\s*\d{1,3}(?:,\d{3})*(?:\.\d+)?/g);
+  if (currencyMatches && currencyMatches.length > 0) {
+    const rawMatched = currencyMatches[currencyMatches.length - 1];
+    const cleaned = rawMatched.replace(/[^0-9.]/g, "").replace(/,/g, "");
+    const num = Number(cleaned);
+    if (!Number.isNaN(num) && num >= 0) return num;
+  }
+
+  const numericMatches = raw.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g) || [];
+  if (numericMatches.length === 0) return 0;
+
+  // If discount percentage exists, avoid picking that small percent number.
+  if (raw.includes("%") && numericMatches.length > 1) {
+    // choose largest numeric (likely actual price, not discount percent)
+    const numbers = numericMatches
+      .map((v) => Number(v.replace(/,/g, "")))
+      .filter((v) => !Number.isNaN(v));
+    const best = numbers.reduce((m, n) => (n > m ? n : m), 0);
+    if (best > 0) return best;
+  }
+
+  // fallback: last numeric match
+  const fallback = Number(
+    numericMatches[numericMatches.length - 1].replace(/,/g, ""),
+  );
+  return Number.isNaN(fallback) ? 0 : fallback;
 }
 
 function validateLogin({ email, password }) {
@@ -695,8 +720,22 @@ app.post(
 );
 
 app.get("/cart", requireAuth, (req, res) => {
-  // pass current cart (empty array if none) to template
-  res.render("cart", { cart: req.session.cart || [] });
+  // guard against stale or bad cart data by normalizing price
+  const cart = (req.session.cart || []).map((item) => {
+    // Ensure price is always a valid number
+    let cleanPrice = item.price;
+    if (typeof cleanPrice !== "number" || isNaN(cleanPrice)) {
+      cleanPrice = parsePrice(cleanPrice);
+    }
+    cleanPrice = Math.round(cleanPrice * 100) / 100; // Ensure 2 decimal places
+    return {
+      ...item,
+      price: cleanPrice,
+      quantity: Number(item.quantity || 1),
+    };
+  });
+  req.session.cart = cart;
+  res.render("cart", { cart });
 });
 
 app.get("/wishlist", requireAuth, (req, res) => {
@@ -745,11 +784,14 @@ app.post(
   (req, res) => {
     const { title, desc, price, image } = req.body;
     if (!req.session.cart) req.session.cart = [];
-    const p = parsePrice(price);
+    // Parse price and ensure it's a clean number
+    let p = parsePrice(price);
+    p = Math.round(p * 100) / 100; // Ensure 2 decimal places max
+    console.log("[cart/add]", { title, rawPrice: price, parsedPrice: p });
     const existing = req.session.cart.find((i) => i.title === title);
     if (existing) {
       existing.quantity = (existing.quantity || 1) + 1;
-      existing.price = parsePrice(existing.price || p);
+      existing.price = p; // Use the already-parsed price, don't re-parse
       existing.desc = desc || existing.desc;
       if (image) existing.image = image;
     } else if (title) {
