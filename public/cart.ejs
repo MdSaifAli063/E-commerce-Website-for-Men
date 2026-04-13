@@ -147,6 +147,13 @@
         <%- include('partials/footer.ejs') %>
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
+                    // Update cart badge on page load
+                    const cartItems = document.querySelectorAll('.cart-item');
+                    const cartCount = cartItems.length;
+                    if (typeof updateCartBadge === 'function') {
+                        updateCartBadge(cartCount);
+                    }
+
                     // Nav active state and keyboard support
                     const navButtons = document.querySelectorAll("nav button");
                     navButtons.forEach((btn) => {
@@ -224,6 +231,10 @@
                             .then((r) => r.json())
                             .then((data) => {
                                 if (!data || !data.success) return;
+                                // Update cart badge
+                                if (typeof updateCartBadge === 'function' && data.count) {
+                                    updateCartBadge(data.count);
+                                }
                                 const card = document.querySelector(`.cart-item[data-title="${CSS.escape(title)}"]`);
                                 if (!card) return;
                                 const qtyElem = card.querySelector('.qty-value');
@@ -282,6 +293,10 @@
                                 body: `title=${encodeURIComponent(title)}`,
                             }).then((r) => r.json()).then((data) => {
                                 if (!data || !data.success) return;
+                                // Update cart badge
+                                if (typeof updateCartBadge === 'function' && data.count !== undefined) {
+                                    updateCartBadge(data.count);
+                                }
                                 card.remove();
                                 if (document.querySelectorAll('.cart-item').length === 0) {
                                     const hold = document.querySelector('section .container > div[style*="max-width:800px"]');

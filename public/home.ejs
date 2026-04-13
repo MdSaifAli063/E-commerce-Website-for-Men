@@ -950,6 +950,11 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}`
+              }).then(r => r.json()).then(data => {
+                // Update cart badge
+                if (typeof updateCartBadge === 'function' && data.count) {
+                  updateCartBadge(data.count);
+                }
               });
             });
           });
