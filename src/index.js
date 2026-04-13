@@ -231,7 +231,7 @@ function parsePrice(value) {
   const raw = String(value || "").trim();
 
   // Handle explicit INR currency tokens first: prefer last listed price.
-  const currencyMatches = raw.match(/₹\s*\d{1,3}(?:,\d{3})*(?:\.\d+)?/g);
+  const currencyMatches = raw.match(/₹\s*[\d,]+\.?\d*/g);
   if (currencyMatches && currencyMatches.length > 0) {
     const rawMatched = currencyMatches[currencyMatches.length - 1];
     const cleaned = rawMatched.replace(/[^0-9.]/g, "").replace(/,/g, "");
@@ -239,7 +239,8 @@ function parsePrice(value) {
     if (!Number.isNaN(num) && num >= 0) return num;
   }
 
-  const numericMatches = raw.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g) || [];
+  // Match numbers with or without commas: "6375", "6,375", "1000.50", etc
+  const numericMatches = raw.match(/\d+(?:,\d{3})*(?:\.\d+)?/g) || [];
   if (numericMatches.length === 0) return 0;
 
   // If discount percentage exists, avoid picking that small percent number.
@@ -791,7 +792,10 @@ app.post(
     const existing = req.session.cart.find((i) => i.title === title);
     if (existing) {
       existing.quantity = (existing.quantity || 1) + 1;
-      existing.price = p; // Use the already-parsed price, don't re-parse
+      // Only update price if price parameter was explicitly provided
+      if (price !== undefined && price !== "") {
+        existing.price = p;
+      }
       existing.desc = desc || existing.desc;
       if (image) existing.image = image;
     } else if (title) {
