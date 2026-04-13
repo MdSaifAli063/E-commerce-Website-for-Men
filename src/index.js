@@ -131,6 +131,13 @@ app.use((req, res, next) => {
   // compute wishlist length; works even if user is not logged in but we still have session
   res.locals.wishlistCount = (req.session.wishlist || []).length;
 
+  // compute cart count
+  const cartItems = req.session.cart || [];
+  res.locals.cartCount = cartItems.reduce(
+    (sum, item) => sum + (item.quantity || 1),
+    0,
+  );
+
   next();
 });
 
