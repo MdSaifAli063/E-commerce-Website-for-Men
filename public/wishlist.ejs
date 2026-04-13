@@ -244,7 +244,11 @@
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                                 body: `title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&price=${encodeURIComponent(price)}&image=${encodeURIComponent(image)}`
-                            }).then(r => r.json()).then(() => {
+                            }).then(r => r.json()).then((cartData) => {
+                                // Update cart badge when item is added to cart
+                                if (typeof updateCartBadge === 'function' && cartData.count) {
+                                    updateCartBadge(cartData.count);
+                                }
                                 // then remove from wishlist
                                 fetch('/wishlist/remove', {
                                     method: 'POST',

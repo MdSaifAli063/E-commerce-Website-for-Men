@@ -48,13 +48,16 @@
             </button>
 
             <!-- Cart -->
-            <button class="icon" title="Cart" aria-label="Cart">
+            <button class="icon cart-btn" title="Cart" aria-label="Cart">
                 <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
                     <path d="M3 6h18"></path>
                     <path d="M16 10a4 4 0 0 1-8 0"></path>
                 </svg>
+                <span id="cart-count" class="cart-badge <%= cartCount && cartCount > 0 ? '' : 'hidden' %>">
+                    <%= cartCount || '' %>
+                </span>
             </button>
 
             <!-- Account dropdown -->
@@ -147,6 +150,15 @@
     // helper exposed to all pages so client scripts can update header badge when they change the wishlist
     function updateWishlistBadge(count) {
         const span = document.getElementById('wishlist-count');
+        if (!span) return;
+        span.textContent = count > 0 ? count : '';
+        if (count > 0) span.classList.remove('hidden');
+        else span.classList.add('hidden');
+    }
+
+    // helper exposed to all pages so client scripts can update header badge when they change the cart
+    function updateCartBadge(count) {
+        const span = document.getElementById('cart-count');
         if (!span) return;
         span.textContent = count > 0 ? count : '';
         if (count > 0) span.classList.remove('hidden');
