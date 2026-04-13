@@ -57,13 +57,36 @@
                             <% if (items.length===0) { %>
                                 <p style="text-align:center; color:#4a5568; font-size:18px;">Your cart is empty.</p>
                                 <% } else { %>
-                                    <% const parsePrice=(v)=> {
-                                        if (typeof v === 'number') return v;
-                                        const str = String(v || '');
-                                        const matches = str.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g);
+                                    <% const parsePrice=(value)=> {
+                                        const raw = String(value || '').trim();
+
+                                        // Handle numbers first
+                                        if (typeof value === 'number') return value;
+
+                                        // Try currency symbols first
+                                        const currencyMatches = raw.match(/₹\s*[\d,]+\.?\d*/g);
+                                        if (currencyMatches && currencyMatches.length > 0) {
+                                        const lastPrice = currencyMatches[currencyMatches.length - 1];
+                                        const cleaned = lastPrice.replace(/[^0-9.]/g, '').replace(/,/g, '');
+                                        const num = Number(cleaned);
+                                        if (!Number.isNaN(num) && num >= 0) return num;
+                                        }
+
+                                        // Fallback: numeric matches - handles both "6375" and "6,375"
+                                        const matches = raw.match(/\d+(?:,\d{3})*(?:\.\d+)?/g);
                                         if (!matches || matches.length === 0) return 0;
-                                        const last = matches[matches.length - 1];
-                                        return Number(last.replace(/,/g, '')) || 0;
+
+                                        // If percentage found, pick largest number
+                                        if (raw.includes('%') && matches.length > 1) {
+                                        const nums = matches.map(v => Number(v.replace(/,/g, ''))).filter(v =>
+                                        !Number.isNaN(v));
+                                        const largest = nums.reduce((m, n) => n > m ? n : m, 0);
+                                        if (largest > 0) return largest;
+                                        }
+
+                                        // Fallback to last match
+                                        const lastNum = Number(matches[matches.length - 1].replace(/,/g, ''));
+                                        return Number.isNaN(lastNum) ? 0 : lastNum;
                                         };
                                         const cartTotal = items.reduce((sum, item) => {
                                         const price = parsePrice(item.price);
@@ -189,7 +212,9 @@
                     };
 
                     const updateCartItem = (title, action) => {
-                        const body = `title=${encodeURIComponent(title)}`;
+                        const card = document.querySelector(`.cart-item[data-title="${CSS.escape(title)}"]`);
+                        const price = card?.getAttribute('data-price') || '0';
+                        const body = `title=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}`;
                         const path = action === 'increase' ? '/cart/add' : '/cart/decrease';
                         fetch(path, {
                             method: 'POST',
