@@ -859,21 +859,32 @@
 
                     function extractCardPrice(rawPrice) {
                         const text = String(rawPrice || '').trim();
-                        const currencyMatches = text.match(/₹\s*\d{1,3}(?:,\d{3})*(?:\.\d+)?/g);
-                        let target = '';
+
+                        // First try to find prices with currency symbol - take the last one (the actual sale price)
+                        const currencyMatches = text.match(/₹\s*[\d,]+\.?\d*/g);
                         if (currencyMatches && currencyMatches.length > 0) {
-                            target = currencyMatches[currencyMatches.length - 1];
-                        } else {
-                            const numericMatches = text.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g) || [];
-                            if (numericMatches.length === 0) return 0;
-                            if (text.includes('%') && numericMatches.length > 1) {
-                                target = numericMatches[numericMatches.length - 2];
-                            } else {
-                                target = numericMatches[numericMatches.length - 1];
-                            }
+                            const lastPrice = currencyMatches[currencyMatches.length - 1];
+                            const cleaned = lastPrice.replace(/[^0-9.]/g, '').replace(/,/g, '');
+                            const num = Number(cleaned);
+                            if (!Number.isNaN(num) && num >= 0) return num;
                         }
-                        const cleaned = String(target).replace(/[^0-9.]/g, '').replace(/,/g, '');
-                        return Number(cleaned) || 0;
+
+                        // Fallback: find all numeric matches - handles both "6375" and "6,375"
+                        const numericMatches = text.match(/\d+(?:,\d{3})*(?:\.\d+)?/g) || [];
+                        if (numericMatches.length === 0) return 0;
+
+                        // If there's a percentage, pick the largest number (likely actual price, not discount)
+                        if (text.includes('%') && numericMatches.length > 1) {
+                            const numbers = numericMatches
+                                .map(v => Number(v.replace(/,/g, '')))
+                                .filter(v => !Number.isNaN(v));
+                            const largest = numbers.reduce((m, n) => n > m ? n : m, 0);
+                            if (largest > 0) return largest;
+                        }
+
+                        // Fallback: take last numeric match
+                        const lastNum = Number(numericMatches[numericMatches.length - 1].replace(/,/g, ''));
+                        return Number.isNaN(lastNum) ? 0 : lastNum;
                     }
 
                     // Keyboard handling: Escape to close, Tab to cycle within menu
