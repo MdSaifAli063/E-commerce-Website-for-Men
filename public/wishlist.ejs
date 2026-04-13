@@ -125,6 +125,30 @@
         <%- include('partials/footer.ejs') %>
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
+                    // Helper function to parse prices consistently
+                    function parsePrice(value) {
+                        const raw = String(value || '').trim();
+
+                        // Handle numbers
+                        if (typeof value === 'number') return value;
+
+                        // Try currency symbols first
+                        const currencyMatches = raw.match(/₹\s*[\d,]+\.?\d*/g);
+                        if (currencyMatches && currencyMatches.length > 0) {
+                            const lastPrice = currencyMatches[currencyMatches.length - 1];
+                            const cleaned = lastPrice.replace(/[^0-9.]/g, '').replace(/,/g, '');
+                            const num = Number(cleaned);
+                            if (!Number.isNaN(num) && num >= 0) return num;
+                        }
+
+                        // Fallback: numeric matches - handles both "6375" and "6,375"
+                        const matches = raw.match(/\d+(?:,\d{3})*(?:\.\d+)?/g);
+
+                        // Fallback to last match
+                        const lastNum = Number(matches[matches.length - 1].replace(/,/g, ''));
+                        return Number.isNaN(lastNum) ? 0 : lastNum;
+                    }
+
                     // Nav active state and keyboard support
                     const navButtons = document.querySelectorAll("nav button");
                     navButtons.forEach((btn) => {
@@ -213,8 +237,7 @@
                             const title = card.getAttribute('data-title');
                             const desc = card.querySelector('.card-desc')?.textContent.trim() || '';
                             const rawPrice = card.querySelector('.card-price')?.textContent.trim() || '';
-                            const priceMatches = rawPrice.match(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/g) || [];
-                            const price = priceMatches.length ? priceMatches[priceMatches.length - 1].replace(/,/g, '') : rawPrice;
+                            const price = parsePrice(rawPrice);
                             const image = card.querySelector('.card-img')?.getAttribute('src') || '';
                             // add to cart first
                             fetch('/cart/add', {
