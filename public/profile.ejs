@@ -1,221 +1,382 @@
 <!DOCTYPE html>
-<html lang="en" style="height:100%">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Profile - Elegant Fashion</title>
+    <title>My Profile - Elegant Fashion</title>
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 
 <body>
-    <%- include('partials/header.ejs') %>
+    <!-- Header (from partials) -->
+    <%- include('partials/header.ejs', { currentPage: currentPage, user: user, cartCount: cartCount, wishlistCount:
+        wishlistCount }) %>
 
-    <main>
-        <section class="hero-section"
-            style="background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #d4af37 100%); padding: 80px 0; border-radius: 0 0 48px 48px; position: relative; overflow: hidden; margin-top: 0; margin-bottom: 60px;">
-            <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.2); top: 0;">
-            </div>
-            <div class="container"
-                style="position: relative; z-index: 1; text-align: center; width: 100%; max-width: 1200px; margin: 0 auto;">
-                <div style="margin-bottom: 40px;">
-                    <h1
-                        style="font-size: 70px; font-family: 'Poppins', Arial, sans-serif; font-weight: 900; color: #d4af37; margin: 0 0 24px 0; line-height: 1.1; letter-spacing: 3px; text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);">
-                        Your Profile
-                    </h1>
-                    <p
-                        style="font-size: 18px; color: #cbd5e1; margin: 0 0 40px 0; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-                        Manage your account, preferences, and personal information securely.
-                    </p>
-                </div>
-                <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">👤</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Account Info</div>
-                    </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">📧</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Email & Password</div>
-                    </div>
-                    <div style="color: #fff; text-align: center;">
-                        <div style="font-size: 36px; font-weight: 900; color: #d4af37; margin-bottom: 8px;">🔒</div>
-                        <div style="font-size: 14px; color: #cbd5e1;">Privacy & Security</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <div class="section-title">Profile Information</div>
-                <div class="section-desc">Your personal details</div>
-                <div
-                    style="max-width:600px; margin:0 auto; background:#fff; padding:32px; border-radius:24px; box-shadow:0 4px 24px rgba(212,175,55,0.12);">
-                    <p><strong>Name:</strong>
-                        <%= user.name %>
-                    </p>
-                    <p><strong>Email:</strong>
-                        <%= user.email %>
-                    </p>
-                    <p><strong>Member since:</strong>
-                        <%= new Date(user.createdAt || Date.now()).toLocaleDateString() %>
-                    </p>
-                    <button class="btn-secondary" style="margin-top:20px;">Edit Profile</button>
+                <div class="hero-content">
+                    <h1 class="hero-title">My Profile</h1>
+                    <p class="hero-desc">Manage your account information and preferences</p>
                 </div>
             </div>
         </section>
-    </main>
 
-    <%- include('partials/footer.ejs') %>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Nav active state and keyboard support
-            const navButtons = document.querySelectorAll("nav button");
-            navButtons.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    navButtons.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
-                });
-                btn.addEventListener("keydown", (e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        btn.click();
-                    }
-                });
-            });
+        <!-- Main Content -->
+        <main class="container" style="margin-bottom: 60px;">
+            <% if (success) { %>
+                <div class="alert alert-success">
+                    ✓ <%= success %>
+                </div>
+                <% } %>
 
-            // Newsletter form (demo)
-            const newsletterForm = document.querySelector(".newsletter-form");
-            newsletterForm?.addEventListener("submit", (e) => {
-                e.preventDefault();
-                alert("Thank you for subscribing!");
-            });
+                    <% if (errors && errors.length> 0) { %>
+                        <% errors.forEach(error=> { %>
+                            <div class="alert alert-error">
+                                ✕ <%= error %>
+                            </div>
+                            <% }) %>
+                                <% } %>
 
-            // Sticky header shadow
-            const header = document.querySelector("header");
-            const baseShadow = "0 10px 30px rgba(26, 35, 50, 0.15)";
-            const scrolledShadow = "0 10px 30px rgba(26, 35, 50, 0.25)";
-            function updateHeaderShadow() {
-                if (!header) return;
-                header.style.boxShadow = window.scrollY > 10 ? scrolledShadow : baseShadow;
-            }
-            updateHeaderShadow();
-            window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+                                    <div class="profile-container">
+                                        <div class="profile-card">
+                                            <!-- Profile Header -->
+                                            <div class="profile-header">
+                                                <div class="profile-avatar">
+                                                    <% if (user.profilePhoto && user.profilePhoto
+                                                        !=='https://via.placeholder.com/150?text=Profile' ) { %>
+                                                        <img src="<%= user.profilePhoto %>" alt="Profile">
+                                                        <% } else { %>
+                                                            👤
+                                                            <% } %>
+                                                </div>
+                                                <div class="profile-info">
+                                                    <div class="profile-name">
+                                                        <%= user.name %>
+                                                    </div>
+                                                    <div class="profile-email">
+                                                        <%= user.email %>
+                                                    </div>
+                                                    <div class="profile-joined">Member since <%= new
+                                                            Date(user.createdAt).toLocaleDateString('en-US', {
+                                                            year: 'numeric' , month: 'long' , day: 'numeric' }) %>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-            // Search and Cart actions (demo)
-            document
-                .querySelector('.search-form')
-                ?.addEventListener("submit", (e) => {
-                    e.preventDefault();
-                    const query = e.target.querySelector('input').value.trim();
-                    if (query) {
-                        alert(`Searching for: "${query}" - functionality coming soon!`);
-                    } else {
-                        alert("Please enter a search term.");
-                    }
-                });
+                                            <!-- Profile Body -->
+                                            <div class="profile-body">
+                                                <% if (!isEditing) { %>
+                                                    <!-- View Mode -->
+                                                    <div class="view-mode">
+                                                        <% if (user.fullName) { %>
+                                                            <div class="info-item">
+                                                                <div class="info-label">Full Name</div>
+                                                                <div class="info-value">
+                                                                    <%= user.fullName %>
+                                                                </div>
+                                                            </div>
+                                                            <% } %>
 
-            document
-                .querySelector('.header-actions button[title="Cart"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/cart';
-                });
+                                                                <% if (user.phone) { %>
+                                                                    <div class="info-item">
+                                                                        <div class="info-label">Phone</div>
+                                                                        <div class="info-value">
+                                                                            <%= user.phone %>
+                                                                        </div>
+                                                                    </div>
+                                                                    <% } %>
 
-            document
-                .querySelector('.header-actions button[title="Wishlist"]')
-                ?.addEventListener("click", () => {
-                    location.href = '/wishlist';
-                });
+                                                                        <% if (user.dateOfBirth) { %>
+                                                                            <div class="info-item">
+                                                                                <div class="info-label">Date of Birth
+                                                                                </div>
+                                                                                <div class="info-value">
+                                                                                    <%= new
+                                                                                        Date(user.dateOfBirth).toLocaleDateString()
+                                                                                        %>
+                                                                                </div>
+                                                                            </div>
+                                                                            <% } %>
 
-            // Account dropdown (Log in / Sign up / Profile / Orders / Logout)
-            const accountBtn = document.getElementById("accountBtn");
-            const accountMenu = document.getElementById("accountMenu");
+                                                                                <% if (user.gender && user.gender
+                                                                                    !=='Prefer not to say' ) { %>
+                                                                                    <div class="info-item">
+                                                                                        <div class="info-label">Gender
+                                                                                        </div>
+                                                                                        <div class="info-value">
+                                                                                            <%= user.gender %>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <% } %>
 
-            function openMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.add("open");
-                accountBtn.setAttribute("aria-expanded", "true");
-                const firstItem = accountMenu.querySelector(".dropdown-item");
-                firstItem?.focus();
-            }
+                                                                                        <% if (user.address) { %>
+                                                                                            <div class="info-item full">
+                                                                                                <div class="info-label">
+                                                                                                    Address</div>
+                                                                                                <div class="info-value">
+                                                                                                    <%= user.address %>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <% } %>
 
-            function closeMenu() {
-                if (!accountMenu || !accountBtn) return;
-                accountMenu.classList.remove("open");
-                accountBtn.setAttribute("aria-expanded", "false");
-            }
+                                                                                                <% if (user.city) { %>
+                                                                                                    <div
+                                                                                                        class="info-item">
+                                                                                                        <div
+                                                                                                            class="info-label">
+                                                                                                            City</div>
+                                                                                                        <div
+                                                                                                            class="info-value">
+                                                                                                            <%= user.city
+                                                                                                                %>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <% } %>
 
-            function toggleMenu() {
-                if (!accountMenu || !accountBtn) return;
-                const isOpen = accountMenu.classList.contains("open");
-                isOpen ? closeMenu() : openMenu();
-            }
+                                                                                                        <% if
+                                                                                                            (user.state)
+                                                                                                            { %>
+                                                                                                            <div
+                                                                                                                class="info-item">
+                                                                                                                <div
+                                                                                                                    class="info-label">
+                                                                                                                    State
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="info-value">
+                                                                                                                    <%= user.state
+                                                                                                                        %>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <% } %>
 
-            accountBtn?.addEventListener("click", (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
+                                                                                                                <% if
+                                                                                                                    (user.zipCode)
+                                                                                                                    { %>
+                                                                                                                    <div
+                                                                                                                        class="info-item">
+                                                                                                                        <div
+                                                                                                                            class="info-label">
+                                                                                                                            Zip
+                                                                                                                            Code
+                                                                                                                        </div>
+                                                                                                                        <div
+                                                                                                                            class="info-value">
+                                                                                                                            <%= user.zipCode
+                                                                                                                                %>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <% }
+                                                                                                                        %>
 
-            // Close on outside click
-            document.addEventListener("click", (e) => {
-                if (!accountMenu || !accountBtn) return;
-                const target = e.target;
-                const clickInsideMenu = accountMenu.contains(target);
-                const clickOnBtn = accountBtn.contains(target);
-                if (!clickInsideMenu && !clickOnBtn) {
-                    closeMenu();
-                }
-            });
+                                                                                                                        <% if
+                                                                                                                            (user.country)
+                                                                                                                            {
+                                                                                                                            %>
+                                                                                                                            <div
+                                                                                                                                class="info-item">
+                                                                                                                                <div
+                                                                                                                                    class="info-label">
+                                                                                                                                    Country
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="info-value">
+                                                                                                                                    <%= user.country
+                                                                                                                                        %>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                            <% }
+                                                                                                                                %>
 
-            // Close menu when clicking any menu item
-            accountMenu?.addEventListener("click", (e) => {
-                const a = e.target.closest("a.dropdown-item");
-                if (a) {
-                    // Allow navigation; just close the menu visually
-                    closeMenu();
-                }
-            });
+                                                                                                                                <% if
+                                                                                                                                    (user.bio)
+                                                                                                                                    {
+                                                                                                                                    %>
+                                                                                                                                    <div
+                                                                                                                                        class="info-item full">
+                                                                                                                                        <div
+                                                                                                                                            class="info-label">
+                                                                                                                                            Bio
+                                                                                                                                        </div>
+                                                                                                                                        <div
+                                                                                                                                            class="info-value">
+                                                                                                                                            <%= user.bio
+                                                                                                                                                %>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                    <% }
+                                                                                                                                        %>
+                                                    </div>
 
-            // Keyboard handling: Escape to close, Tab to cycle within menu
-            document.addEventListener("keydown", (e) => {
-                if (!accountMenu || !accountBtn) return;
+                                                    <div class="button-group">
+                                                        <button class="btn btn-primary"
+                                                            onclick="location.href = location.href + '?edit=true';">Edit
+                                                            Profile</button>
+                                                    </div>
+                                                    <% } else { %>
+                                                        <!-- Edit Mode -->
+                                                        <form id="editForm" method="POST" style="display: block;">
+                                                            <!-- Personal Information -->
+                                                            <div class="form-section">
+                                                                <div class="form-section-title">Personal Information
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="fullName">Full
+                                                                            Name</label>
+                                                                        <input type="text" id="fullName" name="fullName"
+                                                                            class="form-input <%= fieldErrors.fullName ? 'error' : '' %>"
+                                                                            value="<%= user.fullName || '' %>"
+                                                                            placeholder="Enter your full name">
+                                                                        <% if (fieldErrors.fullName) { %>
+                                                                            <div class="form-error">
+                                                                                <%= fieldErrors.fullName %>
+                                                                            </div>
+                                                                            <% } %>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="phone">Phone
+                                                                            Number</label>
+                                                                        <input type="tel" id="phone" name="phone"
+                                                                            class="form-input <%= fieldErrors.phone ? 'error' : '' %>"
+                                                                            value="<%= user.phone || '' %>"
+                                                                            placeholder="+1 (555) 123-4567">
+                                                                        <% if (fieldErrors.phone) { %>
+                                                                            <div class="form-error">
+                                                                                <%= fieldErrors.phone %>
+                                                                            </div>
+                                                                            <% } %>
+                                                                    </div>
+                                                                </div>
 
-                if (e.key === "Escape" && accountMenu.classList.contains("open")) {
-                    e.preventDefault();
-                    closeMenu();
-                    accountBtn.focus();
-                    return;
-                }
+                                                                <div class="form-row">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="dateOfBirth">Date
+                                                                            of
+                                                                            Birth</label>
+                                                                        <input type="date" id="dateOfBirth"
+                                                                            name="dateOfBirth" class="form-input"
+                                                                            value="<%= user.dateOfBirth ? new Date(user.dateOfBirth).toISOString().split('T')[0] : '' %>">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="form-label"
+                                                                            for="gender">Gender</label>
+                                                                        <select id="gender" name="gender"
+                                                                            class="form-select">
+                                                                            <option value="Prefer not to say"
+                                                                                <%=user.gender==='Prefer not to say'
+                                                                                ? 'selected' : '' %>>Prefer not to say
+                                                                            </option>
+                                                                            <option value="Male" <%=user.gender==='Male'
+                                                                                ? 'selected' : '' %>>Male</option>
+                                                                            <option value="Female"
+                                                                                <%=user.gender==='Female' ? 'selected'
+                                                                                : '' %>>Female</option>
+                                                                            <option value="Other"
+                                                                                <%=user.gender==='Other' ? 'selected'
+                                                                                : '' %>>Other</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                if (e.key === "Tab" && accountMenu.classList.contains("open")) {
-                    const focusables = Array.from(
-                        accountMenu.querySelectorAll('.dropdown-item, [role="menuitem"], a[href], button:not([disabled])')
-                    );
-                    if (focusables.length === 0) return;
+                                                            <!-- Address Information -->
+                                                            <div class="form-section">
+                                                                <div class="form-section-title">Address Information
+                                                                </div>
+                                                                <div class="form-row full">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="address">Street
+                                                                            Address</label>
+                                                                        <input type="text" id="address" name="address"
+                                                                            class="form-input"
+                                                                            value="<%= user.address || '' %>"
+                                                                            placeholder="123 Main Street">
+                                                                    </div>
+                                                                </div>
 
-                    const currentIndex = focusables.indexOf(document.activeElement);
-                    let nextIndex = currentIndex;
+                                                                <div class="form-row">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label"
+                                                                            for="city">City</label>
+                                                                        <input type="text" id="city" name="city"
+                                                                            class="form-input"
+                                                                            value="<%= user.city || '' %>"
+                                                                            placeholder="New York">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="form-label"
+                                                                            for="state">State/Province</label>
+                                                                        <input type="text" id="state" name="state"
+                                                                            class="form-input"
+                                                                            value="<%= user.state || '' %>"
+                                                                            placeholder="NY">
+                                                                    </div>
+                                                                </div>
 
-                    if (e.shiftKey) {
-                        nextIndex = currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1;
-                    } else {
-                        nextIndex = currentIndex === focusables.length - 1 ? 0 : currentIndex + 1;
-                    }
+                                                                <div class="form-row">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label"
+                                                                            for="zipCode">Zip/Postal
+                                                                            Code</label>
+                                                                        <input type="text" id="zipCode" name="zipCode"
+                                                                            class="form-input"
+                                                                            value="<%= user.zipCode || '' %>"
+                                                                            placeholder="10001">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="form-label"
+                                                                            for="country">Country</label>
+                                                                        <input type="text" id="country" name="country"
+                                                                            class="form-input"
+                                                                            value="<%= user.country || '' %>"
+                                                                            placeholder="United States">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                    // If focus is not inside menu yet, start at first/last based on tab direction
-                    if (currentIndex === -1) {
-                        nextIndex = e.shiftKey ? focusables.length - 1 : 0;
-                    }
+                                                            <!-- Additional Information -->
+                                                            <div class="form-section">
+                                                                <div class="form-section-title">Additional Information
+                                                                </div>
+                                                                <div class="form-row full">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="bio">Bio (About
+                                                                            You)</label>
+                                                                        <textarea id="bio" name="bio"
+                                                                            class="form-textarea <%= fieldErrors.bio ? 'error' : '' %>"
+                                                                            placeholder="Tell us a bit about yourself..."><%= user.bio || '' %></textarea>
+                                                                        <% if (fieldErrors.bio) { %>
+                                                                            <div class="form-error">
+                                                                                <%= fieldErrors.bio %>
+                                                                            </div>
+                                                                            <% } %>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                    e.preventDefault();
-                    focusables[nextIndex].focus();
-                }
-            });
-        });
-    </script>
+                                                            <div class="button-group">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    onclick="location.href = location.href.split('?')[0];">Cancel</button>
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    Changes</button>
+                                                            </div>
+                                                        </form>
+                                                        <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+        </main>
+
+        <!-- Footer (from partials) -->
+        <%- include('partials/footer.ejs') %>
 </body>
 
 </html>
