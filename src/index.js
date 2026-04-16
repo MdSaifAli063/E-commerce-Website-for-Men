@@ -685,8 +685,150 @@ app.get("/contact", requireAuth, (_req, res) => {
   res.render("contact");
 });
 
-app.get("/profile", requireAuth, (req, res) => {
-  res.render("profile");
+app.get("/profile", requireAuth, async (req, res) => {
+  try {
+    const user = await User.findById(req.session.user.id);
+    if (!user) {
+      return res.redirect("/login");
+    }
+    const isEditing = req.query.edit === "true";
+    const cartCount = (req.session.cart || []).length;
+    const wishlistCount = (req.session.wishlist || []).length;
+    res.render("profile", {
+      user: user.toObject(),
+      isEditing: isEditing,
+      success: null,
+      errors: [],
+      fieldErrors: {},
+      currentPage: "profile",
+      cartCount,
+      wishlistCount,
+    });
+  } catch (err) {
+    console.error("Profile GET error:", err);
+    const cartCount = (req.session.cart || []).length;
+    const wishlistCount = (req.session.wishlist || []).length;
+    res.status(500).render("profile", {
+      user: req.session.user,
+      isEditing: false,
+      success: null,
+      errors: ["Failed to load profile"],
+      fieldErrors: {},
+      currentPage: "profile",
+      cartCount,
+      wishlistCount,
+    });
+  }
+});
+
+// Update profile
+app.post("/profile", requireAuth, async (req, res) => {
+  try {
+    const userId = req.session.user.id;
+    const {
+      fullName,
+      phone,
+      dateOfBirth,
+      gender,
+      address,
+      city,
+      state,
+      zipCode,
+      country,
+      bio,
+    } = req.body;
+
+    // Validation
+    const errors = [];
+    const fieldErrors = {};
+
+    if (fullName && fullName.length > 100) {
+      fieldErrors.fullName = "Full name must not exceed 100 characters.";
+      errors.push(fieldErrors.fullName);
+    }
+
+    if (phone && !/^[\d+\-\s()]*$/.test(phone)) {
+      fieldErrors.phone = "Invalid phone number format.";
+      errors.push(fieldErrors.phone);
+    }
+
+    if (bio && bio.length > 500) {
+      fieldErrors.bio = "Bio must not exceed 500 characters.";
+      errors.push(fieldErrors.bio);
+    }
+
+    if (errors.length > 0) {
+      const user = await User.findById(userId);
+      const cartCount = (req.session.cart || []).length;
+      const wishlistCount = (req.session.wishlist || []).length;
+      return res.status(400).render("profile", {
+        user: user.toObject(),
+        isEditing: true,
+        success: null,
+        errors,
+        fieldErrors,
+        currentPage: "profile",
+        cartCount,
+        wishlistCount,
+      });
+    }
+
+    // Update user document
+    const updateData = {
+      fullName: fullName || "",
+      phone: phone || "",
+      gender: gender || "Prefer not to say",
+      address: address || "",
+      city: city || "",
+      state: state || "",
+      zipCode: zipCode || "",
+      country: country || "",
+      bio: bio || "",
+    };
+
+    if (dateOfBirth) {
+      updateData.dateOfBirth = new Date(dateOfBirth);
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    // Update session with new name if fullName was provided
+    if (fullName && fullName.trim()) {
+      req.session.user.fullName = fullName;
+      req.session.save();
+    }
+
+    const cartCount = (req.session.cart || []).length;
+    const wishlistCount = (req.session.wishlist || []).length;
+    res.render("profile", {
+      user: updatedUser.toObject(),
+      isEditing: false,
+      success: "Profile updated successfully!",
+      errors: [],
+      fieldErrors: {},
+      currentPage: "profile",
+      cartCount,
+      wishlistCount,
+    });
+  } catch (err) {
+    console.error("Profile POST error:", err);
+    const user = await User.findById(req.session.user.id);
+    const cartCount = (req.session.cart || []).length;
+    const wishlistCount = (req.session.wishlist || []).length;
+    res.status(500).render("profile", {
+      user: user.toObject(),
+      isEditing: true,
+      success: null,
+      errors: ["Failed to update profile. Please try again."],
+      fieldErrors: {},
+      currentPage: "profile",
+      cartCount,
+      wishlistCount,
+    });
+  }
 });
 
 app.get("/orders", requireAuth, (req, res) => {
